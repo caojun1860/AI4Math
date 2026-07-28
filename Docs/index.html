@@ -12,7 +12,7 @@
         }
 
         body {
-            background-color: #eef4ea;  /* 护眼色：柔和绿 */
+            background-color: #eef4ea;
             font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
             color: #1e2a1e;
             line-height: 1.5;
@@ -24,7 +24,6 @@
             margin: 0 auto;
         }
 
-        /* 页眉 */
         .header {
             text-align: center;
             margin-bottom: 2.5rem;
@@ -49,7 +48,6 @@
             margin-right: auto;
         }
 
-        /* 任务区块 */
         .task-group {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(2px);
@@ -69,16 +67,17 @@
             margin-bottom: 1.2rem;
         }
 
+        /* 每个主任务只有一个子任务，使用单列布局，卡片更大 */
         .subtasks-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: 1fr;   /* 单列，每个子任务独占一行 */
             gap: 1.2rem;
         }
 
         .subtask-card {
             background: white;
             border-radius: 1.2rem;
-            padding: 1.2rem;
+            padding: 2rem 2rem;           /* 增加内边距，让卡片更大 */
             transition: all 0.2s ease;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
             border: 1px solid #e2eeda;
@@ -92,7 +91,7 @@
 
         .subtask-title {
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.3rem;            /* 标题字体放大 */
             color: #1e3a1e;
             margin-bottom: 0.5rem;
             display: flex;
@@ -103,27 +102,27 @@
 
         .badge {
             background-color: #e7f3e3;
-            padding: 0.2rem 0.6rem;
+            padding: 0.2rem 0.8rem;
             border-radius: 30px;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             font-weight: 500;
             color: #3b6e3b;
         }
 
         .subtask-desc {
-            font-size: 0.9rem;
+            font-size: 1.0rem;            /* 描述字体放大 */
             color: #3a563a;
-            margin-bottom: 1rem;
-            line-height: 1.4;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
         }
 
         .subtask-link {
             display: inline-block;
             background: #eef4ea;
-            padding: 0.35rem 1rem;
+            padding: 0.5rem 1.5rem;
             border-radius: 40px;
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 1.0rem;
             font-weight: 500;
             color: #2b6e2b;
             transition: 0.2s;
@@ -163,6 +162,9 @@
             .subtasks-grid {
                 grid-template-columns: 1fr;
             }
+            .subtask-card {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -170,109 +172,83 @@
 <div class="container">
     <div class="header">
         <h1>📐 Kolmogorov方程的调和分析方法</h1>
-        <p>大量粒子的随机运动将如何演化<br>共七章。</p>
+        <p>大量粒子的随机运动将如何演化<br>共六章。</p>
     </div>
 
-    <!-- 主任务将动态生成：为了清晰，直接内嵌10个任务组（每个主任务含4子任务） -->
-    <!-- 数据定义（用于生成超链接和简短描述） -->
     <div id="app"></div>
     <div class="footer-note">
-        💡 每个子任务均设有独立详情页，包含任务描述、关键结论及附件下载链接。<br>
+        💡 每个章节均设有独立详情页，包含完整论述、关键结论及附件下载链接。<br>
         🌿 本项目遵循陶哲轩“新数学工作流”理念 — 拆解 → 分配 → 验证 → 消化 → 沉淀
     </div>
 </div>
 
 <script>
-    // 任务数据：10个主任务，每个包含4个子任务
+    // 任务数据：6个主任务（章节），每个主任务仅含1个子任务
     const tasksData = [
         {
-            title: "1. Kolmogorov方程的物理背景",
+            title: "第1章 · 物理背景与模型建立",
             subtasks: [
-                { id: "1_1", name: "证明 ϑ(x) = O(x)", desc: "导出切比雪夫函数ϑ(x)的上界，奠定素数分布初等基础。" },
-                { id: "1_2", name: "证明 ψ(x) = ϑ(x) + O(√x)", desc: "联系Chebyshev函数ψ和ϑ，建立二阶误差。" },
-                { id: "1_3", name: "建立上下界 c₁x ≤ ψ(x) ≤ c₂x", desc: "给出素数计数的线性上下界。" },
-                { id: "1_4", name: "导出 π(x) = Ω(x/log x) 和 π(x) = O(x/log x)", desc: "素数定理的第一次粗略逼近。" }
+                { 
+                    id: "ch1", 
+                    name: "从随机游走到Kolmogorov方程", 
+                    desc: "推导Kolmogorov前向方程（Fokker-Planck）的物理直觉与数学形式，建立粒子系统的统计描述。",
+                    link: "chapt1.html"
+                }
             ]
         },
         {
-            title: "2. Kolmogorov方程解的表示",
+            title: "第2章 · 基本解与Green函数",
             subtasks: [
-                { id: "2_1", name: "定义 ζ(s) 并证明绝对收敛", desc: "在Re(s)>1上定义zeta函数，证明一致收敛。" },
-                { id: "2_2", name: "证明 Euler 乘积公式", desc: "揭示素数乘积与级数关联。" },
-                { id: "2_3", name: "解析延拓到 Re(s)>0 并陈述函数方程", desc: "将zeta函数延拓到临界带。" },
-                { id: "2_4", name: "证明 s=1 处一阶极点留数为1", desc: "提取主项来源。" }
+                { 
+                    id: "ch2", 
+                    name: "显式解与基本解的性质", 
+                    desc: "通过Fourier变换求解基本解，分析其高斯型衰减与正则性，为后续估计奠定基础。",
+                    link: "chapt2.html"
+                }
             ]
         },
         {
-            title: "3. 积分核的好坏估计",
+            title: "第3章 · 积分核的精细估计",
             subtasks: [
-                { id: "3_1", name: "定义 Von Mangoldt 函数 Λ(n) 及 ψ(x)", desc: "将素数计数转化为ψ(x)。" },
-                { id: "3_2", name: "证明 -ζ'(s)/ζ(s) = Σ Λ(n)/n^s", desc: "Dirichlet级数与对数导数联系。" },
-                { id: "3_3", name: "应用 Perron 公式表达 ψ(x)", desc: "积分表示定理。" },
-                { id: "3_4", name: "截断积分并给出误差项估计", desc: "控制无穷积分误差。" }
+                { 
+                    id: "ch3", 
+                    name: "积分核的Lp-Lq估计", 
+                    desc: "建立Kolmogorov半群的积分核在混合范数空间中的有界性，发展调和分析工具。",
+                    link: "chapt3.html"
+                }
             ]
         },
         {
-            title: "4. Kinetic Littlewood-Paley理论",
+            title: "第4章 · Littlewood-Paley理论与各向异性",
             subtasks: [
-                { id: "4_1", name: "证明 ζ(s) ≠ 0 对 Re(s) ≥ 1", desc: "无零点线（古典结果）。" },
-                { id: "4_2", name: "更精细的零点自由区域", desc: "Vinogradov–Korobov型区域。" },
-                { id: "4_3", name: "导出 -ζ'(s)/ζ(s) 的解析控制", desc: "在带形区域估计对数导数。" },
-                { id: "4_4", name: "积分误差得到 ψ(x) = x + O(x e^{-c√log x})", desc: "第一个非平凡误差项。" }
+                { 
+                    id: "ch4", 
+                    name: "各向异性的频率分解", 
+                    desc: "引入适应Kolmogorov算子的Littlewood-Paley分解，刻画速度与位置变量的不同尺度。",
+                    link: "chapt4.html"
+                }
             ]
         },
         {
-            title: "5. 积分核估计",
+            title: "第5章 · 解的正则性与光滑效应",
             subtasks: [
-                { id: "5_1", name: "积分路径左移至 Re(s)=1-δ(x)", desc: "移动围道避开极点。" },
-                { id: "5_2", name: "计算 s=1 处留数贡献 x", desc: "主项来源。" },
-                { id: "5_3", name: "估计水平和垂直积分界", desc: "控制剩余部分。" },
-                { id: "5_4", name: "从 ψ(x) 导出 π(x) 渐近式", desc: "通过分部求和完成素数定理。" }
+                { 
+                    id: "ch5", 
+                    name: "Gevrey类与超解析性", 
+                    desc: "证明解在长时间下的光滑性提升，利用算子半群和复插值方法。",
+                    link: "chapt5.html"
+                }
             ]
         },
         {
-            title: "6. 解的有界性及其应用",
+            title: "第6章 · 渐近行为与应用",
             subtasks: [
-                { id: "6_1", name: "引入更精细的零点自由区域", desc: "改进区域形状。" },
-                { id: "6_2", name: "证明 ψ(x) = x + O(x exp(-c (log x)^{3/5}/(log log x)^{1/5}))", desc: "Walfisz误差。" },
-                { id: "6_3", name: "得到相应的素数定理误差项", desc: "误差传递到π(x)。" },
-                { id: "6_4", name: "对比不同误差阶的历史结果", desc: "总结已知最优估计。" }
-            ]
-        },
-        {
-            title: "7. 元素法（初等证明）的概要",
-            subtasks: [
-                { id: "7_1", name: "引入 Selberg 公式", desc: "初等核心恒等式。" },
-                { id: "7_2", name: "推导 ΣΛ(n)log n = x log x - x + O(log x)", desc: "加权和。" },
-                { id: "7_3", name: "利用 Selberg 公式得到 ψ(x) = x + o(x)", desc: "完成初等证明。" },
-                { id: "7_4", name: "总结初等证明与解析证明的异同", desc: "方法论比较。" }
-            ]
-        },
-        {
-            title: "8. 数值验证与计算实例",
-            subtasks: [
-                { id: "8_1", name: "编写代码计算 π(x) 与 x/log x 的比值", desc: "实证检验。" },
-                { id: "8_2", name: "图形展示相对误差", desc: "可视化逼近。" },
-                { id: "8_3", name: "验证 Chebyshev 上下界的宽松程度", desc: "实际界限。" },
-                { id: "8_4", name: "测试零点自由区域对误差项的影响", desc: "近似模拟。" }
-            ]
-        },
-        {
-            title: "9. 算术级数中的素数定理 (Dirichlet型)",
-            subtasks: [
-                { id: "9_1", name: "定义 Dirichlet L函数并陈述性质", desc: "推广zeta。" },
-                { id: "9_2", name: "证明 L函数在 Re(s)≥1 上无零点", desc: "除实特征外。" },
-                { id: "9_3", name: "建立 ψ(x;q,a) 的显式公式", desc: "算术级数和。" },
-                { id: "9_4", name: "证明 π(x;q,a) ~ x/(φ(q) log x)", desc: "Dirichlet素数定理。" }
-            ]
-        },
-        {
-            title: "10. 现代发展——误差项与零点密度猜想",
-            subtasks: [
-                { id: "10_1", name: "Riemann假设下的最优误差项", desc: "假设成立时ψ(x)=x+O(√x log² x)。" },
-                { id: "10_2", name: "当前无条件误差项的最佳结果", desc: "无假设下的纪录。" },
-                { id: "10_3", name: "零点密度猜想与误差项联系", desc: "前沿关联。" },
-                { id: "10_4", name: "总结素数定理在现代数论中的延伸", desc: "函数域、筛法等领域。" }
+                { 
+                    id: "ch6", 
+                    name: "长时间渐近与湍流模型", 
+                    desc: "研究解的长时间收敛性，并讨论在流体力学湍流模型中的应用前景。",
+                    link: "chapt6.html"
+                }
             ]
         }
     ];
@@ -289,10 +265,10 @@
             card.innerHTML = `
                 <div class="subtask-title">
                     <span>📌 ${sub.name}</span>
-                    <span class="badge">子任务 ${sub.id.replace('_','.')}</span>
+                    <span class="badge">核心章节</span>
                 </div>
                 <div class="subtask-desc">${sub.desc}</div>
-                <a class="subtask-link" href="detail.html?id=${sub.id}" target="_blank">📖 查看详情 →</a>
+                <a class="subtask-link" href="${sub.link}" target="_blank">📖 查看详情 →</a>
             `;
             grid.appendChild(card);
         });
