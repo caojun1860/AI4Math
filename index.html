@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>素数定理证明 · 任务蓝图</title>
+    <title>Kolmogorov方程 · 内容框架</title>
     <style>
         * {
             margin: 0;
@@ -169,8 +169,8 @@
 <body>
 <div class="container">
     <div class="header">
-        <h1>📐 素数定理 · 解析证明蓝图</h1>
-        <p>模块化拆解 · 人机协作 · 形式化验证<br>每个子任务均为独立探究单元，点击卡片进入详情页。</p>
+        <h1>📐 Kolmogorov方程 · 内容框架</h1>
+        <p>模块化拆解<br>每个子任务均为独立探究单元，点击卡片进入详情页。</p>
     </div>
 
     <!-- 主任务将动态生成：为了清晰，直接内嵌10个任务组（每个主任务含4子任务） -->
@@ -186,7 +186,7 @@
     // 任务数据：10个主任务，每个包含4个子任务
     const tasksData = [
         {
-            title: "1. Chebyshev 估计的初等推导",
+            title: "1. Kolmogorov方程的物理背景",
             subtasks: [
                 { id: "1_1", name: "证明 ϑ(x) = O(x)", desc: "导出切比雪夫函数ϑ(x)的上界，奠定素数分布初等基础。" },
                 { id: "1_2", name: "证明 ψ(x) = ϑ(x) + O(√x)", desc: "联系Chebyshev函数ψ和ϑ，建立二阶误差。" },
@@ -195,7 +195,7 @@
             ]
         },
         {
-            title: "2. Dirichlet级数与Riemann zeta函数的基本性质",
+            title: "2. Kolmogorov方程解的表示",
             subtasks: [
                 { id: "2_1", name: "定义 ζ(s) 并证明绝对收敛", desc: "在Re(s)>1上定义zeta函数，证明一致收敛。" },
                 { id: "2_2", name: "证明 Euler 乘积公式", desc: "揭示素数乘积与级数关联。" },
@@ -204,7 +204,7 @@
             ]
         },
         {
-            title: "3. Perron 型公式的建立",
+            title: "3. 积分核的好坏估计",
             subtasks: [
                 { id: "3_1", name: "定义 Von Mangoldt 函数 Λ(n) 及 ψ(x)", desc: "将素数计数转化为ψ(x)。" },
                 { id: "3_2", name: "证明 -ζ'(s)/ζ(s) = Σ Λ(n)/n^s", desc: "Dirichlet级数与对数导数联系。" },
@@ -213,7 +213,7 @@
             ]
         },
         {
-            title: "4. 零点自由区域 (没有非平凡零点在 Re(s)≥1)",
+            title: "4. Kinetic Littlewood-Paley理论",
             subtasks: [
                 { id: "4_1", name: "证明 ζ(s) ≠ 0 对 Re(s) ≥ 1", desc: "无零点线（古典结果）。" },
                 { id: "4_2", name: "更精细的零点自由区域", desc: "Vinogradov–Korobov型区域。" },
@@ -222,7 +222,7 @@
             ]
         },
         {
-            title: "5. 主项提取与误差项控制",
+            title: "5. 积分核估计",
             subtasks: [
                 { id: "5_1", name: "积分路径左移至 Re(s)=1-δ(x)", desc: "移动围道避开极点。" },
                 { id: "5_2", name: "计算 s=1 处留数贡献 x", desc: "主项来源。" },
@@ -231,7 +231,7 @@
             ]
         },
         {
-            title: "6. 误差项的初等改进 (Walfisz型估计)",
+            title: "6. 解的有界性及其应用",
             subtasks: [
                 { id: "6_1", name: "引入更精细的零点自由区域", desc: "改进区域形状。" },
                 { id: "6_2", name: "证明 ψ(x) = x + O(x exp(-c (log x)^{3/5}/(log log x)^{1/5}))", desc: "Walfisz误差。" },
