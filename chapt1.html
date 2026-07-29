@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <!-- 页面标题，将显示在浏览器标签上 -->
     <title>第1章 · 物理背景与模型建立 · Kolmogorov方程</title>
+    <!-- 引入 Mermaid 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     <style>
         /* ---------- 全局样式重置与基础 ---------- */
         * {
@@ -14,14 +15,13 @@
         }
 
         body {
-            background-color: #eef4ea;          /* 护眼柔和绿色背景 */
+            background-color: #eef4ea;
             font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
             color: #1e2a1e;
             padding: 2rem 1rem;
             line-height: 1.5;
         }
 
-        /* ---------- 主容器 ---------- */
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -32,7 +32,6 @@
             border: 1px solid #dcecd2;
         }
 
-        /* ---------- 返回主页链接 ---------- */
         .back-link {
             display: inline-block;
             margin-bottom: 1.8rem;
@@ -48,7 +47,6 @@
             background: #dfecda;
         }
 
-        /* ---------- 标题 ---------- */
         h1 {
             font-size: 2rem;
             margin-bottom: 0.25rem;
@@ -64,7 +62,6 @@
             padding-left: 1rem;
         }
 
-        /* ---------- 通用板块样式 ---------- */
         .section {
             margin: 2rem 0;
         }
@@ -78,35 +75,20 @@
             gap: 0.5rem;
         }
 
-        /* 板块1：知识体系（框架/导图） */
+        /* 知识体系盒子 - 现在容纳 Mermaid 图表 */
         .knowledge-box {
             background: #f8fbf6;
             padding: 1.2rem 1.5rem;
             border-radius: 1.2rem;
             border-left: 4px solid #5c9e5c;
+            overflow-x: auto;  /* 防止小屏幕溢出 */
         }
-        .knowledge-box ul {
-            list-style: none;
-            padding-left: 0.5rem;
-        }
-        .knowledge-box li {
-            margin: 0.6rem 0;
-            padding-left: 1.2rem;
-            position: relative;
-        }
-        .knowledge-box li::before {
-            content: "▹";
-            color: #5c9e5c;
-            position: absolute;
-            left: 0;
-        }
-        .knowledge-box .sub-item {
-            margin-left: 1.5rem;
-            font-size: 0.95rem;
-            color: #3a563a;
+        /* Mermaid 图表默认居中，宽度100% */
+        .knowledge-box .mermaid {
+            text-align: center;
+            background: transparent;
         }
 
-        /* 板块2：讲义链接 */
         .lecture-box {
             background: #f3f7ef;
             border-radius: 1.2rem;
@@ -129,7 +111,6 @@
             border-color: #9fc292;
         }
 
-        /* 板块3：留言讨论（与之前相同） */
         .comment-box {
             background: #f3f7ef;
             border-radius: 1.2rem;
@@ -143,7 +124,6 @@
             margin-top: 0.8rem;
         }
 
-        /* 板块4：上传文件（与之前相同） */
         .upload-box {
             background: #f3f7ef;
             border-radius: 1.2rem;
@@ -189,13 +169,6 @@
             background: #e2f0db;
             border-color: #9fc292;
         }
-        .upload-note {
-            font-size: 0.8rem;
-            color: #5f7a5a;
-            margin-top: 0.8rem;
-        }
-
-        /* ---------- 页脚 ---------- */
         .footer-note {
             text-align: center;
             font-size: 0.8rem;
@@ -203,7 +176,6 @@
             margin-top: 2rem;
         }
 
-        /* ---------- 响应式 ---------- */
         @media (max-width: 650px) {
             .container { padding: 1.2rem; }
             h1 { font-size: 1.5rem; }
@@ -213,45 +185,61 @@
 <body>
 <div class="container">
 
-    <!-- ========== 返回链接 ========== -->
     <a href="index.html" class="back-link">← 返回任务蓝图</a>
 
-    <!-- ========== 标题区 ========== -->
     <h1>第1章 · 物理背景与模型建立</h1>
     <div class="chapter-id">核心章节 · Kolmogorov 方程的起源与相空间描述</div>
 
     <!-- ============================================================ -->
-    <!-- 板块1：本章知识体系（概念框架 / 思维导图）                     -->
+    <!-- 板块1：本章知识体系（思维导图）                               -->
     <!-- ============================================================ -->
     <div class="section" id="knowledgeSection">
         <h3>🧠 本章知识体系</h3>
         <div class="knowledge-box">
-            <!-- 这里用嵌套列表模拟思维导图框架，您也可以直接插入一张图片 -->
-            <ul>
-                <li><strong>Kolmogorov 方程的物理起源</strong>
-                    <ul class="sub-item">
-                        <li>布朗运动与 Einstein 理论</li>
-                        <li>Fokker‑Planck 方程的导出</li>
-                        <li>Kolmogorov 前向方程 (KFE) 的提出</li>
-                    </ul>
-                </li>
-                <li><strong>相空间与状态描述</strong>
-                    <ul class="sub-item">
-                        <li>速度‑位置变量 <code>(v, x)</code></li>
-                        <li>相空间概率密度 <code>f(t, x, v)</code></li>
-                        <li>宏观量与矩的封闭性</li>
-                    </ul>
-                </li>
-                <li><strong>方程的数学结构</strong>
-                    <ul class="sub-item">
-                        <li>散度形式与守恒律</li>
-                        <li>退化抛物型特征</li>
-                        <li>各向异性与尺度不匹配</li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- 如果您有现成的思维导图图片，可取消下面注释 -->
-            <!-- <img src="attachments/ch1_mindmap.png" alt="第1章思维导图" style="max-width:100%; margin-top:1rem; border-radius:1rem;"> -->
+            <!-- 这里放置 Mermaid 思维导图 -->
+            <pre class="mermaid">
+%%{init: {'theme': 'base', 'themeVariables': {
+    'background': '#e8f5e9',
+    'primaryColor': '#1b5e20',
+    'primaryBorderColor': '#0d3b0e',
+    'lineColor': '#2e7d32',
+    'textColor': '#ffffff',
+    'fontSize': '15px',
+    'fontFamily': 'Microsoft YaHei, SimHei, sans-serif',
+    'nodeBorder': '2px',
+    'mainBkg': '#e8f5e9'
+}}}%%
+
+graph TD
+    classDef node fill:#1b5e20,stroke:#0d3b0e,color:#ffffff,stroke-width:2px,rx:8px,ry:8px
+    classDef root fill:#1b5e20,stroke:#0d3b0e,color:#ffffff,stroke-width:3px,rx:12px,ry:12px,font-size:18px,font-weight:bold
+
+    Root["🌿 Kolmogorov方程物理背景"]:::root
+
+    B1["1. 相空间 $(x,v)$"]:::node
+    B2["2. 分布函数 $f(t,x,v)$<br/>概率密度"]:::node
+    B3["3. 四类基本模型<br/>自由飞行 · 布朗运动 · OU · Lévy"]:::node
+
+    T1["4. 随机微分方程<br/>$dX=Vdt,\ dV=$ 扰动+外力"]:::node
+    T2["5. Itô公式<br/>随机链式法则"]:::node
+    T3["6. 生成元<br/>$A = v\cdot\nabla_x + \Delta_v$"]:::node
+
+    E1["7. 齐次Kolmogorov方程<br/>$\partial_t f + v\cdot\nabla_x f - \Delta_v f = 0$"]:::node
+    E2["8. 非齐次Kolmogorov方程<br/>$\partial_t f + v\cdot\nabla_x f - \Delta_v f = S$"]:::node
+
+    M1["9. 概率方法<br/>Itô → 生成元 → 对偶分部"]:::node
+    M2["10. 解析方法<br/>守恒律 → 通量 → 散度定理"]:::node
+
+    Root --> B1 --> B2 --> B3
+    Root --> T1 --> T2 --> T3
+    T3 --> E1
+    B2 --> E1
+    E1 --> E2
+    E1 --> M1
+    E1 --> M2
+    M1 -.-> E2
+    M2 -.-> E2
+            </pre>
         </div>
     </div>
 
@@ -263,7 +251,6 @@
         <div class="lecture-box">
             <p style="margin-bottom:0.8rem;">点击下方按钮下载或在线查看本章完整讲义（PDF 格式）：</p>
             <a href="attachments/chapt1.pdf" target="_blank">📄 chapt1.pdf</a>
-            <!-- 注：请将 chapt1.pdf 文件上传到根目录下的 attachments 文件夹中 -->
             <p style="margin-top:0.8rem; font-size:0.8rem; color:#5f7a5a;">⏳ 讲义尚在完善中，后续将持续更新。</p>
         </div>
     </div>
@@ -274,7 +261,6 @@
     <div class="section" id="commentSection">
         <h3>💬 留言讨论</h3>
         <div class="comment-box">
-            <!-- Utterances 容器 -->
             <div id="comments-container"></div>
             <div class="upload-note" style="margin-top:0.8rem;">
                 💡 提示：留言需要 GitHub 账号。评论区基于 GitHub Issues，首次加载请稍候。<br>
@@ -290,26 +276,22 @@
         <h3>📤 上传文件 & 共享附件</h3>
         <div class="upload-box">
             <p>你可以通过以下方式上传补充材料（如笔记、代码、PDF等），并获取分享链接。</p>
-            <!-- 跳转到临时文件托管网站，用户自行上传后获得链接 -->
             <a href="https://tmpfiles.org/" target="_blank" class="btn-upload">📎 点击上传文件 (临时托管)</a>
             <div class="upload-note">
                 🔗 上传后，将生成的链接粘贴到下方“已上传附件列表”中，方便他人下载。<br>
                 ⚠️ 临时文件可能失效，建议使用 GitHub Releases 或云盘长期存储。
             </div>
-            <!-- 记录附件链接的输入区域 -->
             <div style="margin-top: 1.2rem;">
                 <label style="font-weight:500;">📋 记录新附件链接：</label>
                 <input type="text" id="newUploadLink" placeholder="粘贴文件链接" style="width: 70%; padding: 0.4rem; margin: 0.5rem 0; border-radius: 30px; border: 1px solid #cbdbbf;">
                 <input type="text" id="newUploadName" placeholder="附件名称（可选）" style="width: 70%; padding: 0.4rem; margin: 0.5rem 0; border-radius: 30px; border: 1px solid #cbdbbf;">
                 <button onclick="addUploadRecord()" style="background: #5c9e5c; color: white; border: none; padding: 0.4rem 1rem; border-radius: 30px; cursor: pointer;">添加记录</button>
-                <!-- 已添加的附件列表 -->
                 <ul id="uploadRecordList" class="upload-list" style="margin-top: 1rem;"></ul>
                 <div class="upload-note">✅ 所有记录仅保存在你当前浏览器中，清除缓存会丢失。建议将重要链接直接附在留言区。</div>
             </div>
         </div>
     </div>
 
-    <!-- ========== 页脚 ========== -->
     <div class="footer-note">
         📎 固定讲义存放在 <code>attachments/</code> 目录下。<br>
         💬 留言板块基于 <a href="https://github.com/utterance/utterances" target="_blank">Utterances</a>，需要 GitHub 账号参与讨论。
@@ -318,41 +300,33 @@
 </div><!-- /container -->
 
 <!-- ============================================================ -->
-<!-- JavaScript 部分                                              -->
+<!-- JavaScript 部分（上传记录管理 + Mermaid 初始化）              -->
 <!-- ============================================================ -->
 <script>
     /**
      * 上传记录管理（使用 localStorage 保存在当前浏览器中）
-     * 功能：添加、删除、渲染用户自定义的附件链接
      */
-
     let uploadRecords = [];
 
-    // 从 localStorage 加载已有记录（以当前页面路径为 key）
     function loadUploadRecords() {
-        // 使用当前页面路径（如 chapt1）作为存储 key，使每个章节独立
         const key = window.location.pathname.replace(/^.*\/([^/]+)\.html$/, '$1') || 'default';
         const stored = localStorage.getItem(`uploads_${key}`);
         uploadRecords = stored ? JSON.parse(stored) : [];
         renderUploadRecords();
     }
 
-    // 添加新记录
     function addUploadRecord() {
         const link = document.getElementById('newUploadLink').value.trim();
         const name = document.getElementById('newUploadName').value.trim() || '未命名附件';
         if (!link) { alert('请填写文件链接'); return; }
         uploadRecords.push({ link, name, time: new Date().toLocaleString() });
-        // 保存到 localStorage
         const key = window.location.pathname.replace(/^.*\/([^/]+)\.html$/, '$1') || 'default';
         localStorage.setItem(`uploads_${key}`, JSON.stringify(uploadRecords));
-        // 清空输入框
         document.getElementById('newUploadLink').value = '';
         document.getElementById('newUploadName').value = '';
         renderUploadRecords();
     }
 
-    // 删除记录
     function deleteUploadRecord(index) {
         uploadRecords.splice(index, 1);
         const key = window.location.pathname.replace(/^.*\/([^/]+)\.html$/, '$1') || 'default';
@@ -360,7 +334,6 @@
         renderUploadRecords();
     }
 
-    // 渲染记录列表
     function renderUploadRecords() {
         const listEl = document.getElementById('uploadRecordList');
         if (!listEl) return;
@@ -377,13 +350,34 @@
         `).join('');
     }
 
-    // 页面加载完成后初始化上传记录
+    // 初始化上传记录
     if (document.getElementById('uploadRecordList')) {
         loadUploadRecords();
-        // 将函数暴露到全局，供按钮 onclick 调用
         window.addUploadRecord = addUploadRecord;
         window.deleteUploadRecord = deleteUploadRecord;
     }
+
+    // 初始化 Mermaid（确保渲染）
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof mermaid !== 'undefined') {
+            mermaid.initialize({
+                theme: 'base',
+                themeVariables: {
+                    background: '#e8f5e9',
+                    primaryColor: '#1b5e20',
+                    primaryBorderColor: '#0d3b0e',
+                    lineColor: '#2e7d32',
+                    textColor: '#ffffff',
+                    fontSize: '15px',
+                    fontFamily: 'Microsoft YaHei, SimHei, sans-serif',
+                    nodeBorder: '2px',
+                    mainBkg: '#e8f5e9'
+                }
+            });
+            // 手动渲染所有 .mermaid 元素（由于预标签可能在初始化前已加载）
+            mermaid.run({ nodes: document.querySelectorAll('.mermaid') });
+        }
+    });
 </script>
 
 <!-- ============================================================ -->
