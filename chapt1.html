@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>第1章 · 物理背景与模型建立 · Kolmogorov方程</title>
-    <!-- 引入 Mermaid 库 -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     <style>
-        /* ---------- 全局样式重置与基础 ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -75,18 +73,20 @@
             gap: 0.5rem;
         }
 
-        /* 知识体系盒子 - 现在容纳 Mermaid 图表 */
         .knowledge-box {
             background: #f8fbf6;
             padding: 1.2rem 1.5rem;
             border-radius: 1.2rem;
             border-left: 4px solid #5c9e5c;
-            overflow-x: auto;  /* 防止小屏幕溢出 */
+            overflow-x: auto;
+            text-align: center;  /* 使内部SVG居中 */
         }
-        /* Mermaid 图表默认居中，宽度100% */
-        .knowledge-box .mermaid {
-            text-align: center;
-            background: transparent;
+
+        /* 缩小思维导图尺寸：限制SVG最大宽度为容器宽度的70% */
+        .knowledge-box .mermaid svg {
+            max-width: 70%;
+            height: auto;
+            display: inline-block;
         }
 
         .lecture-box {
@@ -179,6 +179,9 @@
         @media (max-width: 650px) {
             .container { padding: 1.2rem; }
             h1 { font-size: 1.5rem; }
+            .knowledge-box .mermaid svg {
+                max-width: 100%;  /* 小屏设备恢复全宽，保证可读性 */
+            }
         }
     </style>
 </head>
@@ -190,13 +193,9 @@
     <h1>第1章 · 物理背景与模型建立</h1>
     <div class="chapter-id">核心章节 · Kolmogorov 方程的起源与相空间描述</div>
 
-    <!-- ============================================================ -->
-    <!-- 板块1：本章知识体系（思维导图）                               -->
-    <!-- ============================================================ -->
     <div class="section" id="knowledgeSection">
         <h3>🧠 本章知识体系</h3>
         <div class="knowledge-box">
-            <!-- 这里放置 Mermaid 思维导图 -->
             <pre class="mermaid">
 %%{init: {'theme': 'base', 'themeVariables': {
     'background': '#e8f5e9',
@@ -216,19 +215,19 @@ graph TD
 
     Root["🌿 Kolmogorov方程物理背景"]:::root
 
-    B1["1. 相空间 $(x,v)$"]:::node
-    B2["2. 分布函数 $f(t,x,v)$<br/>概率密度"]:::node
-    B3["3. 四类基本模型<br/>自由飞行 · 布朗运动 · OU · Lévy"]:::node
+    B1["相空间"]:::node
+    B2["分布函数"]:::node
+    B3["四类基本模型"]:::node
 
-    T1["4. 随机微分方程<br/>$dX=Vdt,\ dV=$ 扰动+外力"]:::node
-    T2["5. Itô公式<br/>随机链式法则"]:::node
-    T3["6. 生成元<br/>$A = v\cdot\nabla_x + \Delta_v$"]:::node
+    T1["随机微分方程"]:::node
+    T2["Itô公式"]:::node
+    T3["生成元"]:::node
 
-    E1["7. 齐次Kolmogorov方程<br/>$\partial_t f + v\cdot\nabla_x f - \Delta_v f = 0$"]:::node
-    E2["8. 非齐次Kolmogorov方程<br/>$\partial_t f + v\cdot\nabla_x f - \Delta_v f = S$"]:::node
+    E1["齐次Kolmogorov方程$"]:::node
+    E2["非齐次Kolmogorov方程"]:::node
 
-    M1["9. 概率方法<br/>Itô → 生成元 → 对偶分部"]:::node
-    M2["10. 解析方法<br/>守恒律 → 通量 → 散度定理"]:::node
+    M1["概率方法"]:::node
+    M2["解析方法"]:::node
 
     Root --> B1 --> B2 --> B3
     Root --> T1 --> T2 --> T3
@@ -243,21 +242,15 @@ graph TD
         </div>
     </div>
 
-    <!-- ============================================================ -->
-    <!-- 板块2：本章讲义 PDF 链接                                      -->
-    <!-- ============================================================ -->
     <div class="section" id="lectureSection">
         <h3>📖 本章讲义</h3>
         <div class="lecture-box">
             <p style="margin-bottom:0.8rem;">点击下方按钮下载或在线查看本章完整讲义（PDF 格式）：</p>
             <a href="attachments/chapt1.pdf" target="_blank">📄 chapt1.pdf</a>
-            <p style="margin-top:0.8rem; font-size:0.8rem; color:#5f7a5a;">⏳ 讲义尚在完善中，后续将持续更新。</p>
+            <p style="margin-top:0.8rem; font-size:0.8rem; color:#5f7a5a;"> </p>
         </div>
     </div>
 
-    <!-- ============================================================ -->
-    <!-- 板块3：留言讨论（Utterances 评论区）                          -->
-    <!-- ============================================================ -->
     <div class="section" id="commentSection">
         <h3>💬 留言讨论</h3>
         <div class="comment-box">
@@ -269,9 +262,6 @@ graph TD
         </div>
     </div>
 
-    <!-- ============================================================ -->
-    <!-- 板块4：上传文件 & 共享附件（本地存储）                         -->
-    <!-- ============================================================ -->
     <div class="section" id="uploadSection">
         <h3>📤 上传文件 & 共享附件</h3>
         <div class="upload-box">
@@ -297,15 +287,9 @@ graph TD
         💬 留言板块基于 <a href="https://github.com/utterance/utterances" target="_blank">Utterances</a>，需要 GitHub 账号参与讨论。
     </div>
 
-</div><!-- /container -->
+</div>
 
-<!-- ============================================================ -->
-<!-- JavaScript 部分（上传记录管理 + Mermaid 初始化）              -->
-<!-- ============================================================ -->
 <script>
-    /**
-     * 上传记录管理（使用 localStorage 保存在当前浏览器中）
-     */
     let uploadRecords = [];
 
     function loadUploadRecords() {
@@ -350,14 +334,12 @@ graph TD
         `).join('');
     }
 
-    // 初始化上传记录
     if (document.getElementById('uploadRecordList')) {
         loadUploadRecords();
         window.addUploadRecord = addUploadRecord;
         window.deleteUploadRecord = deleteUploadRecord;
     }
 
-    // 初始化 Mermaid（确保渲染）
     document.addEventListener('DOMContentLoaded', function() {
         if (typeof mermaid !== 'undefined') {
             mermaid.initialize({
@@ -374,15 +356,11 @@ graph TD
                     mainBkg: '#e8f5e9'
                 }
             });
-            // 手动渲染所有 .mermaid 元素（由于预标签可能在初始化前已加载）
             mermaid.run({ nodes: document.querySelectorAll('.mermaid') });
         }
     });
 </script>
 
-<!-- ============================================================ -->
-<!-- Utterances 评论脚本：基于 GitHub Issues                       -->
-<!-- ============================================================ -->
 <script src="https://utteranc.es/client.js"
         repo="caojun1860/Workflow-temple"
         issue-term="pathname"
