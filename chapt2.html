@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>第2章 · 解的表示 · Kolmogorov方程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #eef4ea;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a1e;
+            padding: 2rem 1rem;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.05);
+            padding: 2rem 2rem 2.5rem;
+            border: 1px solid #dcecd2;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1.8rem;
+            text-decoration: none;
+            color: #4c7a4a;
+            font-weight: 500;
+            background: #eef4ea;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            transition: 0.2s;
+        }
+        .back-link:hover {
+            background: #dfecda;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+            color: #1e3a1e;
+            border-left: 5px solid #5c9e5c;
+            padding-left: 1rem;
+        }
+        .chapter-id {
+            font-size: 0.85rem;
+            color: #5f7a5a;
+            margin-bottom: 1.5rem;
+            margin-top: 0.25rem;
+            padding-left: 1rem;
+        }
+
+        .section {
+            margin: 2rem 0;
+        }
+        .section h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2b5e2b;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .knowledge-box {
+            background: #f8fbf6;
+            padding: 1.2rem 1.5rem;
+            border-radius: 1.2rem;
+            border-left: 4px solid #5c9e5c;
+            overflow-x: auto;
+        }
+
+        .knowledge-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .knowledge-box ul li {
+            margin: 0.4rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        .knowledge-box ul li::before {
+            content: "•";
+            color: #2e7d32;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .knowledge-box ul ul {
+            padding-left: 2rem;
+        }
+        .knowledge-box ul ul li {
+            font-size: 0.95rem;
+            color: #2d4a2d;
+        }
+        .knowledge-box ul ul li::before {
+            content: "◦";
+            color: #4c7a4a;
+        }
+
+        .lecture-box {
+            background: #f3f7ef;
+            border-radius: 1.2rem;
+            padding: 1.2rem;
+            border: 1px solid #d1e2c6;
+        }
+        .lecture-box a {
+            display: inline-block;
+            background: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid #cbdbbf;
+            color: #337a33;
+            font-weight: 500;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .lecture-box a:hover {
+            background: #e2f0db;
+            border-color: #9fc292;
+        }
+
+        .comment-box {
+            background: #f3f7ef;
+            border-radius: 1.2rem;
+            padding: 1.2rem;
+            margin-top: 1rem;
+            border: 1px solid #d1e2c6;
+        }
+        .upload-note {
+            font-size: 0.8rem;
+            color: #5f7a5a;
+            margin-top: 0.8rem;
+        }
+
+        .upload-box {
+            background: #f3f7ef;
+            border-radius: 1.2rem;
+            padding: 1.2rem;
+            margin-top: 1rem;
+            border: 1px solid #d1e2c6;
+        }
+        .btn-upload {
+            display: inline-block;
+            background: #5c9e5c;
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-upload:hover {
+            background: #3f7a3f;
+        }
+        .upload-list {
+            margin-top: 0.8rem;
+            list-style: none;
+        }
+        .upload-list li {
+            margin: 0.6rem 0;
+        }
+        .upload-list a {
+            text-decoration: none;
+            color: #337a33;
+            font-weight: 500;
+            background: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            border: 1px solid #cbdbbf;
+            display: inline-block;
+            transition: 0.2s;
+        }
+        .upload-list a:hover {
+            background: #e2f0db;
+            border-color: #9fc292;
+        }
+        .footer-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #6f8a67;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 650px) {
+            .container { padding: 1.2rem; }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <a href="index.html" class="back-link">← 返回任务蓝图</a>
+
+    <h1>第2章 · Kolmogorov方程解的表示</h1>
+    <div class="chapter-id">核心章节 · 从偏微分方程到积分算子</div>
+
+    <div class="section" id="knowledgeSection">
+        <h3>📋 本章目录</h3>
+        <div class="knowledge-box">
+            <ul>
+                <li><strong>1 相空间Fourier变换</strong>
+                    <ul>
+                        <li>1.1 Fourier变换的定义</li>
+                        <li>1.2 Fourier变换的基本性质</li>
+                    </ul>
+                </li>
+                <li><strong>2 Fourier端方程与特征线法</strong>
+                    <ul>
+                        <li>2.1 Fourier端方程</li>
+                        <li>2.2 特征线方法</li>
+                        <li>2.3 Duhamel公式</li>
+                    </ul>
+                </li>
+                <li><strong>3 解的表示与Kolmogorov算子</strong>
+                    <ul>
+                        <li>3.1 Fourier端解的表示</li>
+                        <li>3.2 向前解与因果律</li>
+                        <li>3.3 伽利略变换与动能平移算子</li>
+                        <li>3.4 向前Kolmogorov算子</li>
+                    </ul>
+                </li>
+                <li><strong>4 注意事项</strong></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section" id="lectureSection">
+        <h3>📖 本章讲义</h3>
+        <div class="lecture-box">
+            <p style="margin-bottom:0.8rem;">点击下方按钮下载或在线查看本章完整讲义（PDF 格式）：</p>
+            <a href="attachments/chapt2.pdf" target="_blank">📄 chapt2.pdf</a>
+            <p style="margin-top:0.8rem; font-size:0.8rem; color:#5f7a5a;"> </p>
+        </div>
+    </div>
+
+    <div class="section" id="commentSection">
+        <h3>💬 留言讨论</h3>
+        <div class="comment-box">
+            <div id="comments-container"></div>
+            <div class="upload-note" style="margin-top:0.8rem;">
+                💡 提示：留言需要 GitHub 账号。评论区基于 GitHub Issues，首次加载请稍候。<br>
+                ⚠️ 请确保本页面对应的 GitHub 仓库（caojun1860/Workflow-temple）已启用 Issues 且为公开仓库。
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="uploadSection">
+        <h3>📤 上传文件 & 共享附件</h3>
+        <div class="upload-box">
+            <p>你可以通过以下方式上传补充材料（如笔记、代码、PDF等），并获取分享链接。</p>
+            <a href="https://tmpfiles.org/" target="_blank" class="btn-upload">📎 点击上传文件 (临时托管)</a>
+            <div class="upload-note">
+                🔗 上传后，将生成的链接粘贴到下方“已上传附件列表”中，方便他人下载。<br>
+                ⚠️ 临时文件可能失效，建议使用 GitHub Releases 或云盘长期存储。
+            </div>
+            <div style="margin-top: 1.2rem;">
+                <label style="font-weight:500;">📋 记录新附件链接：</label>
+                <input type="text" id="newUploadLink" placeholder="粘贴文件链接" style="width: 70%; padding: 0.4rem; margin: 0.5rem 0; border-radius: 30px; border: 1px solid #cbdbbf;">
+                <input type="text" id="newUploadName" placeholder="附件名称（可选）" style="width: 70%; padding: 0.4rem; margin: 0.5rem 0; border-radius: 30px; border: 1px solid #cbdbbf;">
+                <button onclick="addUploadRecord()" style="background: #5c9e5c; color: white; border: none; padding: 0.4rem 1rem; border-radius: 30px; cursor: pointer;">添加记录</button>
+                <ul id="uploadRecordList" class="upload-list" style="margin-top: 1rem;"></ul>
+                <div class="upload-note">✅ 所有记录仅保存在你当前浏览器中，清除缓存会丢失。建议将重要链接直接附在留言区。</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        📎 固定讲义存放在 <code>attachments/</code> 目录下。<br>
+        💬 留言板块基于 <a href="https://github.com/utterance/utterances" target="_blank">Utterances</a>，需要 GitHub 账号参与讨论。
+    </div>
+
+</div>
+
+<script>
+    // 上传记录管理（与第一章相同）
+    let uploadRecords = [];
+
+    function loadUploadRecords() {
+        const key = window.location.pathname.replace(/^.*\/([^/]+)\.html$/, '$1') || 'default';
+        const stored = localStorage.getItem(`uploads_${key}`);
+        uploadRecords = stored ? JSON.parse(stored) : [];
+        renderUploadRecords();
+    }
+
+    function addUploadRecord() {
+        const link = document.getElementById('newUploadLink').value.trim();
+        const name = document.getElementById('newUploadName').value.trim() || '未命名附件';
+        if (!link) { alert('请填写文件链接'); return; }
+        uploadRecords.push({ link, name, time: new Date().toLocaleString() });
+        const key = window.location.pathname.replace(/^.*\/([^/]+)\.html$/, '$1') || 'default';
+        localStorage.setItem(`uploads_${key}`, JSON.stringify(uploadRecords));
+        document.getElementById('newUploadLink').value = '';
+        document.getElementById('newUploadName').value = '';
+        renderUploadRecords();
+    }
+
+    function deleteUploadRecord(index) {
+        uploadRecords.splice(index, 1);
+        const key = window.location.pathname.replace(/^.*\/([^/]+)\.html$/, '$1') || 'default';
+        localStorage.setItem(`uploads_${key}`, JSON.stringify(uploadRecords));
+        renderUploadRecords();
+    }
+
+    function renderUploadRecords() {
+        const listEl = document.getElementById('uploadRecordList');
+        if (!listEl) return;
+        if (uploadRecords.length === 0) {
+            listEl.innerHTML = '<li style="color:#6f8a67;">暂无上传记录，点击上方按钮添加。</li>';
+            return;
+        }
+        listEl.innerHTML = uploadRecords.map((rec, idx) => `
+            <li>
+                <a href="${rec.link}" target="_blank">📁 ${rec.name}</a>
+                <span style="font-size:0.75rem; color:#6f8a67; margin-left:0.5rem;">${rec.time}</span>
+                <button onclick="deleteUploadRecord(${idx})" style="margin-left:1rem; background:none; border:none; color:#b35f5f; cursor:pointer;">🗑️</button>
+            </li>
+        `).join('');
+    }
+
+    if (document.getElementById('uploadRecordList')) {
+        loadUploadRecords();
+        window.addUploadRecord = addUploadRecord;
+        window.deleteUploadRecord = deleteUploadRecord;
+    }
+</script>
+
+<!-- 使用 Utterances 评论（与第一章一致） -->
+<script src="https://utteranc.es/client.js"
+        repo="caojun1860/Workflow-temple"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+</body>
+</html>
