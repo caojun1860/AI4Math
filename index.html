@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>AI时代的数学工作流设计</title>
+    <title>AI时代下的数学思考笔记</title>
     <style>
         * {
             margin: 0;
@@ -20,7 +20,7 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -30,7 +30,7 @@
         }
 
         .header h1 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 600;
             letter-spacing: -0.01em;
             background: linear-gradient(135deg, #2b5e2b, #1e3a1e);
@@ -67,17 +67,16 @@
             margin-bottom: 1.2rem;
         }
 
-        /* 每个主任务只有一个子任务，使用单列布局，卡片更大 */
         .subtasks-grid {
             display: grid;
-            grid-template-columns: 1fr;   /* 单列，每个子任务独占一行 */
+            grid-template-columns: 1fr;
             gap: 1.2rem;
         }
 
         .subtask-card {
             background: white;
             border-radius: 1.2rem;
-            padding: 2rem 2rem;           /* 增加内边距，让卡片更大 */
+            padding: 2rem 2rem;
             transition: all 0.2s ease;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
             border: 1px solid #e2eeda;
@@ -91,7 +90,7 @@
 
         .subtask-title {
             font-weight: 700;
-            font-size: 1.3rem;            /* 标题字体放大 */
+            font-size: 1.3rem;
             color: #1e3a1e;
             margin-bottom: 0.5rem;
             display: flex;
@@ -110,7 +109,7 @@
         }
 
         .subtask-desc {
-            font-size: 1.0rem;            /* 描述字体放大 */
+            font-size: 1.0rem;
             color: #3a563a;
             margin-bottom: 1.2rem;
             line-height: 1.5;
@@ -171,83 +170,84 @@
 <body>
 <div class="container">
     <div class="header">
-        <h1> AI时代的数学工作流设计</h1>
-        <p>学习、教学、研究<br> </p>
+        <h1>📐 AI时代下的数学思考笔记</h1>
+        <p>从认知基座到人才培养 · 系统探讨AI时代的数学学习、研究、教学与创造</p>
     </div>
 
     <div id="app"></div>
+
     <div class="footer-note">
-        💡 每个章节均设有独立详情页，包含完整论述、关键结论及附件下载链接。<br>
-        🌿 本项目遵循“AI数学工作流”理念 — 拆解 → 分配 → 验证 → 消化 → 沉淀
+        💡 每篇文章均包含完整论述与核心洞察，持续更新中。<br>
+        🌿 整个系列遵循「思行合一」的理念 —— 认知与行动协同演化，在AI时代重新定义数学的边界。
     </div>
 </div>
 
 <script>
-    // 任务数据：6个主任务（章节），每个主任务仅含1个子任务
+    // 六篇论文的数据 —— 按照认识论→操作论的顺序排列
     const tasksData = [
         {
-            title: "第1章 · 物理背景与模型建立",
+            title: "第一篇 · 认知基座",
             subtasks: [
-                { 
-                    id: "ch1", 
-                    name: "从随机运动到Kolmogorov方程", 
-                    desc: "系统介绍了 Kolmogorov 方程的物理背景。分别利用概率方法和解析方法推导方程，为后续分析奠定基础。",
-                    link: "chapt1.html"
+                {
+                    id: "article1",
+                    name: "AI与人类智能的本质差异",
+                    desc: "提出「三个世界」认知框架，剖析连接主义智能与时间性智能的根本分野，建立「扑克牌-概念踏板」模型，阐释压缩即涌现的认知原理。",
+                    link: "article1.html"
                 }
             ]
         },
         {
-            title: "第2章 · 方程解的表示",
+            title: "第二篇 · 知识生态",
             subtasks: [
-                { 
-                    id: "ch2", 
-                    name: "从Kolmogorov方程到Kolmogorov算子", 
-                    desc: "通过Fourier变换求解方程，给出向前解的定义以及解算子的积分表示。",
-                    link: "chapt2.html"
+                {
+                    id: "article2",
+                    name: "AI时代知识生产的结构性转变",
+                    desc: "描绘从「学科树」到「学科网」的演化趋势，提出学者角色的新分化 —— 封装者、调用者、组合者，探讨思维经济化与知识模块化的时代意义。",
+                    link: "article2.html"
                 }
             ]
         },
         {
-            title: "第3章 · 积分核的精细估计",
+            title: "第三篇 · 项目与开创",
             subtasks: [
-                { 
-                    id: "ch3", 
-                    name: "积分核的Lp-Lq估计", 
-                    desc: "建立Kolmogorov半群的积分核在混合范数空间中的有界性，发展调和分析工具。",
-                    link: "chapt3.html"
+                {
+                    id: "article3",
+                    name: "AI时代有价值的项目从何而来",
+                    desc: "总结项目来源的四个维度（观察世界、提炼问题、注重交叉、技术驱动），提出好项目的五条标准，论证从「开创者」到「催化者」的范式转移。",
+                    link: "article3.html"
                 }
             ]
         },
         {
-            title: "第4章 · Littlewood-Paley理论与各向异性",
+            title: "第四篇 · 研究工作流",
             subtasks: [
-                { 
-                    id: "ch4", 
-                    name: "各向异性的频率分解", 
-                    desc: "引入适应Kolmogorov算子的Littlewood-Paley分解，刻画速度与位置变量的不同尺度。",
-                    link: "chapt4.html"
+                {
+                    id: "article4",
+                    name: "思行工作流：五维认知框架与四步循环",
+                    desc: "系统呈现「思行工作流」的五模块架构（对话、图谱、可视化、验证、实践），以及贯穿始终的四步认知循环（提问、整理、蒸馏、封装）。",
+                    link: "article4.html"
                 }
             ]
         },
         {
-            title: "第5章 · 解的正则性与光滑效应",
+            title: "第五篇 · 教学重构",
             subtasks: [
-                { 
-                    id: "ch5", 
-                    name: "Gevrey类与超解析性", 
-                    desc: "证明解在长时间下的光滑性提升，利用算子半群和复插值方法。",
-                    link: "chapt5.html"
+                {
+                    id: "article5",
+                    name: "从讲解员到策展人：AI时代数学教育的范式革命",
+                    desc: "以「博物馆类比」揭示教学角色的根本转变，倡导项目式学习与成果展示评价，探讨「课堂已死」背后的大学重生路径。",
+                    link: "article5.html"
                 }
             ]
         },
         {
-            title: "第6章 · 渐近行为与应用",
+            title: "第六篇 · 人才培养",
             subtasks: [
-                { 
-                    id: "ch6", 
-                    name: "长时间渐近与湍流模型", 
-                    desc: "研究解的长时间收敛性，并讨论在流体力学湍流模型中的应用前景。",
-                    link: "chapt6.html"
+                {
+                    id: "article6",
+                    name: "AI时代数学人才的培养路径重构",
+                    desc: "区分本科生、研究生、博士生的三阶段培养目标，强调项目驱动、复合能力与终身学习，以马骁的成长轨迹作为典型案例。",
+                    link: "article6.html"
                 }
             ]
         }
@@ -265,10 +265,10 @@
             card.innerHTML = `
                 <div class="subtask-title">
                     <span>📌 ${sub.name}</span>
-                    <span class="badge">核心章节</span>
+                    <span class="badge">核心论文</span>
                 </div>
                 <div class="subtask-desc">${sub.desc}</div>
-                <a class="subtask-link" href="${sub.link}" target="_blank">📖 查看详情 →</a>
+                <a class="subtask-link" href="${sub.link}" target="_blank">📖 阅读全文 →</a>
             `;
             grid.appendChild(card);
         });
