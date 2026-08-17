@@ -10,35 +10,30 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            background-color: #e6f0fa;  /* 浅蓝色护眼背景 */
+            background-color: #e6f0fa;
             font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
             color: #1a2a3a;
             line-height: 1.5;
             padding: 2rem 1.5rem;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
         }
-
         .header {
             text-align: center;
             margin-bottom: 2.5rem;
         }
-
         .header h1 {
             font-size: 2.4rem;
             font-weight: 600;
             letter-spacing: -0.01em;
-            background: linear-gradient(135deg, #1a5276, #2e86c1);  /* 深蓝到亮蓝渐变 */
+            background: linear-gradient(135deg, #1a5276, #2e86c1);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
         }
-
         .header p {
             color: #2c5f7a;
             margin-top: 0.5rem;
@@ -47,7 +42,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .task-group {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(2px);
@@ -57,7 +51,6 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
             border: 1px solid rgba(100, 150, 200, 0.25);
         }
-
         .task-group h2 {
             font-size: 1.7rem;
             font-weight: 600;
@@ -66,13 +59,11 @@
             padding-left: 1rem;
             margin-bottom: 1.2rem;
         }
-
         .subtasks-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 1.2rem;
         }
-
         .subtask-card {
             background: white;
             border-radius: 1.2rem;
@@ -81,13 +72,11 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
             border: 1px solid #d4e4f0;
         }
-
         .subtask-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 20px rgba(40, 100, 180, 0.10);
             border-color: #a8c8e8;
         }
-
         .subtask-title {
             font-weight: 700;
             font-size: 1.3rem;
@@ -98,7 +87,6 @@
             gap: 0.5rem;
             flex-wrap: wrap;
         }
-
         .badge {
             background-color: #dceaf5;
             padding: 0.2rem 0.8rem;
@@ -107,14 +95,12 @@
             font-weight: 500;
             color: #1a5a7a;
         }
-
         .subtask-desc {
             font-size: 1.0rem;
             color: #2a4a5a;
             margin-bottom: 1.2rem;
             line-height: 1.5;
         }
-
         .subtask-link {
             display: inline-block;
             background: #e6f0fa;
@@ -127,13 +113,11 @@
             transition: 0.2s;
             border: 1px solid #c4d8ec;
         }
-
         .subtask-link:hover {
             background: #cfe0f0;
             color: #0f4a6a;
             border-color: #8ab8d8;
         }
-
         .footer-note {
             margin-top: 2rem;
             text-align: center;
@@ -143,14 +127,27 @@
             padding: 1rem;
             border-radius: 2rem;
         }
-
+        .visitor-counter {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #1a5a7a;
+            font-weight: 500;
+        }
+        .visitor-counter span {
+            background: #fff;
+            padding: 0.15rem 0.6rem;
+            border-radius: 8px;
+            border: 1px solid #c4d8ec;
+            font-weight: 700;
+            color: #1a4a6a;
+            margin: 0 0.2rem;
+        }
         hr {
             margin: 1rem 0;
             border: none;
             height: 1px;
             background: linear-gradient(to right, #c8dce8, transparent);
         }
-
         @media (max-width: 700px) {
             body {
                 padding: 1rem;
@@ -179,75 +176,67 @@
     <div class="footer-note">
         💡 每篇文章均包含完整论述与核心洞察，持续更新中。<br>
         🌿 整个系列遵循「思行合一」的理念 —— 认知与行动协同演化，在AI时代重新定义数学的边界。
+        <div class="visitor-counter">
+            👀 本页已被访问 <span id="visitCount">0</span> 次
+        </div>
     </div>
 </div>
 
 <script>
-    // 六篇论文的数据 —— 按照认识论→操作论的顺序排列
+    // 五篇论文的数据 —— 原第二篇与第三篇已合并
     const tasksData = [
         {
-            title: "认知篇 · 1 · 三个世界",
+            title: "第一篇 · 认知基座",
             subtasks: [
                 {
                     id: "article1",
-                    name: "AI与人类智能的本质差异",
-                    desc: "提出「三个世界」认知框架，剖析连接主义智能与时间性智能的根本分野，建立「扑克牌-概念踏板」模型，阐释压缩即涌现的认知原理。",
+                    name: "当必死遇到永生——AI时代的人类认知定位",
+                    desc: "构建三重世界的认知坐标系（物理世界、数学世界、AI世界），剖析人类时域拓荒者与AI频域执行者的根本分野，提出概念踏板模型与必死/永生的意义锚点，聚焦协同级AI阶段人类认知重塑的三大能力。",
                     link: "article1.html"
                 }
             ]
         },
         {
-            title: "第二篇 · 知识生态",
+            title: "第二篇 · 知识生态与项目开发",
             subtasks: [
                 {
                     id: "article2",
-                    name: "AI时代知识生产的结构性转变",
-                    desc: "描绘从「学科树」到「学科网」的演化趋势，提出学者角色的新分化 —— 封装者、调用者、组合者，探讨思维经济化与知识模块化的时代意义。",
+                    name: "从学科树到知识网——AI时代的知识生态与学者价值",
+                    desc: "描绘从「学科树」到「学科森林」再到「知识网」的演化，提出封装者、调用者、组合者三重角色分化；进而探讨从「论文单元」到「项目单元」的范式转移，阐明好问题的三个源头与好项目的五维评价标准。",
                     link: "article2.html"
                 }
             ]
         },
         {
-            title: "第三篇 · 项目与开创",
+            title: "第三篇 · 研究工作流",
             subtasks: [
                 {
                     id: "article3",
-                    name: "AI时代有价值的项目从何而来",
-                    desc: "总结项目来源的四个维度（观察世界、提炼问题、注重交叉、技术驱动），提出好项目的五条标准，论证从「开创者」到「催化者」的范式转移。",
+                    name: "思行工作流：五维认知框架与四步循环",
+                    desc: "系统呈现「思行工作流」的五模块架构（对话、图谱、可视化、验证、实践），以及贯穿始终的四步认知循环（提问、整理、蒸馏、封装）。",
                     link: "article3.html"
                 }
             ]
         },
         {
-            title: "第四篇 · 研究工作流",
+            title: "第四篇 · 教学重构",
             subtasks: [
                 {
                     id: "article4",
-                    name: "思行工作流：五维认知框架与四步循环",
-                    desc: "系统呈现「思行工作流」的五模块架构（对话、图谱、可视化、验证、实践），以及贯穿始终的四步认知循环（提问、整理、蒸馏、封装）。",
+                    name: "从讲解员到策展人：AI时代数学教育的范式革命",
+                    desc: "以「博物馆类比」揭示教学角色的根本转变，倡导项目式学习与成果展示评价，探讨「课堂已死」背后的大学重生路径。",
                     link: "article4.html"
                 }
             ]
         },
         {
-            title: "第五篇 · 教学重构",
+            title: "第五篇 · 人才培养",
             subtasks: [
                 {
                     id: "article5",
-                    name: "从讲解员到策展人：AI时代数学教育的范式革命",
-                    desc: "以「博物馆类比」揭示教学角色的根本转变，倡导项目式学习与成果展示评价，探讨「课堂已死」背后的大学重生路径。",
-                    link: "article5.html"
-                }
-            ]
-        },
-        {
-            title: "第六篇 · 人才培养",
-            subtasks: [
-                {
-                    id: "article6",
                     name: "AI时代数学人才的培养路径重构",
-                    desc: "区分本科生、研究生、博士生的三阶段培养目标，强调项目驱动、复合能力与终身学习，以马骁的成长轨迹作为典型案例。",
-                    link: "article6.html"
+                    desc: "区分本科生、研究生、博士生的三阶段培养目标，强调项目驱动、复合能力与终身学习，以成长轨迹作为典型案例。",
+                    link: "article5.html"
                 }
             ]
         }
@@ -274,6 +263,15 @@
         });
         container.appendChild(groupDiv);
     });
+
+    // 访问者数量统计（基于 localStorage）
+    (function() {
+        const key = 'math_notes_visit_count';
+        let count = parseInt(localStorage.getItem(key) || '0', 10);
+        count += 1;
+        localStorage.setItem(key, count.toString());
+        document.getElementById('visitCount').textContent = count;
+    })();
 </script>
 </body>
 </html>
