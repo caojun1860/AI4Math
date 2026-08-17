@@ -1,277 +1,623 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
     <title>AI时代下的思考笔记</title>
+
     <style>
+
         * {
+
             margin: 0;
+
             padding: 0;
+
             box-sizing: border-box;
+
         }
+
         body {
+
             background-color: #e6f0fa;
+
             font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+
             color: #1a2a3a;
+
             line-height: 1.5;
+
             padding: 2rem 1.5rem;
+
         }
+
         .container {
+
             max-width: 1200px;
+
             margin: 0 auto;
+
         }
+
         .header {
+
             text-align: center;
+
             margin-bottom: 2.5rem;
+
         }
+
         .header h1 {
+
             font-size: 2.4rem;
+
             font-weight: 600;
+
             letter-spacing: -0.01em;
+
             background: linear-gradient(135deg, #1a5276, #2e86c1);
+
             background-clip: text;
+
             -webkit-background-clip: text;
+
             color: transparent;
+
         }
+
         .header p {
+
             color: #2c5f7a;
+
             margin-top: 0.5rem;
+
             font-size: 1.05rem;
+
             max-width: 700px;
+
             margin-left: auto;
+
             margin-right: auto;
+
         }
-        .task-group {
-            background: rgba(255, 255, 255, 0.7);
+
+        .intro-section {
+
+            background: rgba(255, 255, 255, 0.85);
+
             backdrop-filter: blur(2px);
+
             border-radius: 2rem;
-            padding: 1.8rem 1.5rem;
+
+            padding: 2rem 2.2rem;
+
             margin-bottom: 2.5rem;
+
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+
             border: 1px solid rgba(100, 150, 200, 0.25);
+
+            border-left: 5px solid #2e86c1;
+
         }
-        .task-group h2 {
-            font-size: 1.7rem;
+
+        .intro-section h2 {
+
+            font-size: 1.5rem;
+
             font-weight: 600;
+
             color: #1a4a6a;
-            border-left: 5px solid #5b9bd5;
-            padding-left: 1rem;
+
             margin-bottom: 1.2rem;
-        }
-        .subtasks-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.2rem;
-        }
-        .subtask-card {
-            background: white;
-            border-radius: 1.2rem;
-            padding: 2rem 2rem;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-            border: 1px solid #d4e4f0;
-        }
-        .subtask-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 20px rgba(40, 100, 180, 0.10);
-            border-color: #a8c8e8;
-        }
-        .subtask-title {
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: #1a3a5a;
-            margin-bottom: 0.5rem;
+
             display: flex;
-            align-items: baseline;
+
+            align-items: center;
+
             gap: 0.5rem;
-            flex-wrap: wrap;
+
         }
-        .badge {
-            background-color: #dceaf5;
-            padding: 0.2rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: #1a5a7a;
-        }
-        .subtask-desc {
+
+        .intro-section p {
+
             font-size: 1.0rem;
-            color: #2a4a5a;
-            margin-bottom: 1.2rem;
-            line-height: 1.5;
+
+            color: #2a3a4a;
+
+            line-height: 1.9;
+
+            margin-bottom: 1rem;
+
+            text-align: justify;
+
         }
-        .subtask-link {
-            display: inline-block;
-            background: #e6f0fa;
-            padding: 0.5rem 1.5rem;
-            border-radius: 40px;
-            text-decoration: none;
-            font-size: 1.0rem;
-            font-weight: 500;
-            color: #1a6a8a;
-            transition: 0.2s;
-            border: 1px solid #c4d8ec;
+
+        .intro-section p:last-child {
+
+            margin-bottom: 0;
+
         }
-        .subtask-link:hover {
-            background: #cfe0f0;
-            color: #0f4a6a;
-            border-color: #8ab8d8;
-        }
-        .footer-note {
-            margin-top: 2rem;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #3a6a8a;
-            background: rgba(200, 220, 240, 0.4);
-            padding: 1rem;
+
+        .task-group {
+
+            background: rgba(255, 255, 255, 0.7);
+
+            backdrop-filter: blur(2px);
+
             border-radius: 2rem;
+
+            padding: 1.8rem 1.5rem;
+
+            margin-bottom: 2.5rem;
+
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+
+            border: 1px solid rgba(100, 150, 200, 0.25);
+
         }
-        .visitor-counter {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: #1a5a7a;
-            font-weight: 500;
-        }
-        .visitor-counter span {
-            background: #fff;
-            padding: 0.15rem 0.6rem;
-            border-radius: 8px;
-            border: 1px solid #c4d8ec;
-            font-weight: 700;
+
+        .task-group h2 {
+
+            font-size: 1.7rem;
+
+            font-weight: 600;
+
             color: #1a4a6a;
+
+            border-left: 5px solid #5b9bd5;
+
+            padding-left: 1rem;
+
+            margin-bottom: 1.2rem;
+
+        }
+
+        .subtasks-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr;
+
+            gap: 1.2rem;
+
+        }
+
+        .subtask-card {
+
+            background: white;
+
+            border-radius: 1.2rem;
+
+            padding: 2rem 2rem;
+
+            transition: all 0.2s ease;
+
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+
+            border: 1px solid #d4e4f0;
+
+        }
+
+        .subtask-card:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 12px 20px rgba(40, 100, 180, 0.10);
+
+            border-color: #a8c8e8;
+
+        }
+
+        .subtask-title {
+
+            font-weight: 700;
+
+            font-size: 1.3rem;
+
+            color: #1a3a5a;
+
+            margin-bottom: 0.5rem;
+
+            display: flex;
+
+            align-items: baseline;
+
+            gap: 0.5rem;
+
+            flex-wrap: wrap;
+
+        }
+
+        .badge {
+
+            background-color: #dceaf5;
+
+            padding: 0.2rem 0.8rem;
+
+            border-radius: 30px;
+
+            font-size: 0.8rem;
+
+            font-weight: 500;
+
+            color: #1a5a7a;
+
+        }
+
+        .subtask-desc {
+
+            font-size: 1.0rem;
+
+            color: #2a4a5a;
+
+            margin-bottom: 1.2rem;
+
+            line-height: 1.5;
+
+        }
+
+        .subtask-link {
+
+            display: inline-block;
+
+            background: #e6f0fa;
+
+            padding: 0.5rem 1.5rem;
+
+            border-radius: 40px;
+
+            text-decoration: none;
+
+            font-size: 1.0rem;
+
+            font-weight: 500;
+
+            color: #1a6a8a;
+
+            transition: 0.2s;
+
+            border: 1px solid #c4d8ec;
+
+        }
+
+        .subtask-link:hover {
+
+            background: #cfe0f0;
+
+            color: #0f4a6a;
+
+            border-color: #8ab8d8;
+
+        }
+
+        .footer-note {
+
+            margin-top: 2rem;
+
+            text-align: center;
+
+            font-size: 0.85rem;
+
+            color: #3a6a8a;
+
+            background: rgba(200, 220, 240, 0.4);
+
+            padding: 1rem;
+
+            border-radius: 2rem;
+
+        }
+
+        .visitor-counter {
+
+            margin-top: 1rem;
+
+            font-size: 0.9rem;
+
+            color: #1a5a7a;
+
+            font-weight: 500;
+
+        }
+
+        .visitor-counter span {
+
+            background: #fff;
+
+            padding: 0.15rem 0.6rem;
+
+            border-radius: 8px;
+
+            border: 1px solid #c4d8ec;
+
+            font-weight: 700;
+
+            color: #1a4a6a;
+
             margin: 0 0.2rem;
+
         }
+
         hr {
+
             margin: 1rem 0;
+
             border: none;
+
             height: 1px;
+
             background: linear-gradient(to right, #c8dce8, transparent);
+
         }
+
         @media (max-width: 700px) {
+
             body {
+
                 padding: 1rem;
+
             }
+
+            .intro-section {
+
+                padding: 1.5rem 1.2rem;
+
+            }
+
+            .intro-section h2 {
+
+                font-size: 1.3rem;
+
+            }
+
             .task-group {
+
                 padding: 1rem;
+
             }
+
             .subtasks-grid {
+
                 grid-template-columns: 1fr;
+
             }
+
             .subtask-card {
+
                 padding: 1.5rem;
+
             }
+
         }
+
     </style>
+
 </head>
+
 <body>
+
 <div class="container">
+
     <div class="header">
+
         <h1> AI时代下的思考笔记</h1>
-        <p>从认知基座到人才培养 · 系统探讨AI时代的数学学习、研究、教学与创造</p>
+
+        <p> </p>
+
+    </div>
+
+    <!-- 系列导言 -->
+    <div class="intro-section">
+        <h2>📖 系列导言</h2>
+        <p>1936年，图灵为解决希尔伯特的判定问题，设计了一台想象中的机器。这台机器的思路耐人寻味：它不是去攻克判定问题本身，而是致力于发展一台足够通用的装置，只要给它足够的时间和规则，它能计算任何可计算的东西。图灵的洞见在于：与其一个问题一个问题地去解决，不如造一台能解决所有问题的机器。后来的故事我们都知道了：这台纸面上的机器变成了计算机，计算机变成了互联网，互联网催生了人工智能。而人工智能，正在回过头来改变每一个学科、每一个行业、每一种知识生产方式。</p>
+        <p>今天的AI，某种意义上就是图灵所设想的那台机器的当代化身。它不专属于数学、物理学以及任何一门学科。它是一种通用能力，正在同时渗透进所有领域。数学家用它验证猜想，生物学家用它预测蛋白质结构，医生用它诊断疾病，教师用它设计教案，程序员用它生成代码，作家用它起草文稿。没有一个领域能置身事外，也没有一个领域能提前断言它最终会带来什么。</p>
+        <p>正因为如此，我们无法对AI的冲击做出最终的判断和结论。技术演进的速度远远超过了认知沉淀的速度，今天被认为不可能的事，明天可能就成为现实；今天被视为威胁的能力，后天可能就被整合进新的工作流。面对这样一个快速移动的目标，任何试图一劳永逸地"盖棺定论"的努力，都注定是徒劳的。</p>
+        <p>由于AI的迭代速度远超预期，我们根本无法对这场变革的最终走向做出定论。这个系列的文章，就是作为一线教师和知识工作者，把近几年伴随AI快速发展冒出来的思想碎片，结合我们最关心的教学变革、知识生产转型、职业边界等问题，以笔记的形式系统整理成一个思考框架，不追求给出确定的答案，只是记录下我们在这场智能革命中的观察，思考与困惑，看看未来最终会走向哪里。</p>
+        <p>在每一篇文章的最后，我们都设有一块留言板，也欢迎您把您的想法和思考留下——这些碎片汇聚起来，或许就是我们共同寻找答案的方式。</p>
     </div>
 
     <div id="app"></div>
 
     <div class="footer-note">
+
         💡 每篇文章均包含完整论述与核心洞察，持续更新中。<br>
-        🌿 整个系列遵循「思行合一」的理念 —— 认知与行动协同演化，在AI时代重新定义数学的边界。
+
+        🌿 整个系列遵循「思行合一」的理念 —— 认知与行动协同演化，在AI时代重新定义人类认知的边界。
+
         <div class="visitor-counter">
+
             👀 本页已被访问 <span id="visitCount">0</span> 次
+
         </div>
+
     </div>
+
 </div>
 
 <script>
+
     // 五篇论文的数据 —— 原第二篇与第三篇已合并
+
     const tasksData = [
+
         {
+
             title: "认知篇 · 第一篇",
+
             subtasks: [
+
                 {
+
                     id: "article1",
+
                     name: "当必死遇到永生——AI时代的人类认知定位",
-                    desc: "构建三重世界的认知坐标系（物理世界、数学世界、AI世界），剖析人类时域拓荒者与AI频域执行者的根本分野，提出概念踏板模型与必死/永生的意义锚点，聚焦协同级AI阶段人类认知重塑的三大能力。",
+
+                    desc: "构建物理世界、数学世界、AI世界的三重世界的认知坐标系，剖析人类时域拓荒者与AI频域执行者的根本分野，提出概念踏板模型与必死/永生的意义锚点，聚焦协同级AI阶段人类认知重塑的三大能力。",
+
                     link: "article1.html"
+
                 }
+
             ]
+
         },
+
         {
+
             title: "认知篇 · 第二篇",
+
             subtasks: [
+
                 {
+
                     id: "article2",
+
                     name: "从学科树到知识网——AI时代的知识生态与学者价值",
+
                     desc: "描绘从「学科树」到「学科森林」再到「知识网」的演化，提出封装者、调用者、组合者三重角色分化；进而探讨从「论文单元」到「项目单元」的范式转移，阐明好问题的三个源头与好项目的五维评价标准。",
+
                     link: "article2.html"
+
                 }
+
             ]
+
         },
+
         {
-            title: "第三篇 · 研究工作流",
+
+            title: "行动篇 · 第一篇",
+
             subtasks: [
+
                 {
+
                     id: "article3",
-                    name: "思行工作流：五维认知框架与四步循环",
-                    desc: "系统呈现「思行工作流」的五模块架构（对话、图谱、可视化、验证、实践），以及贯穿始终的四步认知循环（提问、整理、蒸馏、封装）。",
+
+                    name: "PATH工作流：五维认知框架与四步循环",
+
+                    desc: "系统呈现「PATH工作流」的五模块架构（对话、图谱、可视化、验证、实践），以及贯穿始终的四步认知循环（提问、整理、蒸馏、封装）。",
+
                     link: "article3.html"
+
                 }
+
             ]
+
         },
+
         {
-            title: "第四篇 · 教学重构",
+
+            title: "行动篇 · 第二篇",
+
             subtasks: [
+
                 {
+
                     id: "article4",
+
                     name: "从讲解员到策展人：AI时代数学教育的范式革命",
+
                     desc: "以「博物馆类比」揭示教学角色的根本转变，倡导项目式学习与成果展示评价，探讨「课堂已死」背后的大学重生路径。",
+
                     link: "article4.html"
+
                 }
+
             ]
+
         },
+
         {
-            title: "第五篇 · 人才培养",
+
+            title: "行动篇 · 第三篇",
+
             subtasks: [
+
                 {
+
                     id: "article5",
+
                     name: "AI时代数学人才的培养路径重构",
+
                     desc: "区分本科生、研究生、博士生的三阶段培养目标，强调项目驱动、复合能力与终身学习，以成长轨迹作为典型案例。",
+
                     link: "article5.html"
+
                 }
+
             ]
+
         }
+
     ];
 
     const container = document.getElementById('app');
+
     tasksData.forEach(task => {
+
         const groupDiv = document.createElement('div');
+
         groupDiv.className = 'task-group';
+
         groupDiv.innerHTML = `<h2>${task.title}</h2><div class="subtasks-grid"></div>`;
+
         const grid = groupDiv.querySelector('.subtasks-grid');
+
         task.subtasks.forEach(sub => {
+
             const card = document.createElement('div');
+
             card.className = 'subtask-card';
+
             card.innerHTML = `
+
                 <div class="subtask-title">
+
                     <span>📌 ${sub.name}</span>
-                    <span class="badge">核心论文</span>
+
+                    <span class="badge">核心篇章</span>
+
                 </div>
+
                 <div class="subtask-desc">${sub.desc}</div>
+
                 <a class="subtask-link" href="${sub.link}" target="_blank">📖 阅读全文 →</a>
+
             `;
+
             grid.appendChild(card);
+
         });
+
         container.appendChild(groupDiv);
+
     });
 
     // 访问者数量统计（基于 localStorage）
+
     (function() {
+
         const key = 'math_notes_visit_count';
+
         let count = parseInt(localStorage.getItem(key) || '0', 10);
+
         count += 1;
+
         localStorage.setItem(key, count.toString());
+
         document.getElementById('visitCount').textContent = count;
+
     })();
+
 </script>
+
 </body>
+
 </html>
