@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<title>“让潮水涨起来”——AI时代数学家的核心使命</title>
+
+<style>
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { background-color: #e6f0fa; font-family: 'Segoe UI', Roboto, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif; color: #1a2a3a; padding: 2rem 1rem; line-height: 1.8; }
+
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 2rem; box-shadow: 0 20px 35px rgba(0,0,0,0.05); padding: 2.5rem 2.5rem 3rem; border: 1px solid #d4e4f0; }
+
+        .back-link { display: inline-block; margin-bottom: 1.8rem; text-decoration: none; color: #1a6a8a; font-weight: 500; background: #e6f0fa; padding: 0.4rem 1rem; border-radius: 40px; transition: 0.2s; }
+
+        .back-link:hover { background: #cfe0f0; }
+
+        .article-title { font-size: 2rem; margin-bottom: 0.5rem; color: #1a3a5a; border-left: 5px solid #2e86c1; padding-left: 1rem; line-height: 1.4; }
+
+        .article-subtitle { font-size: 1.1rem; color: #2c5f7a; padding-left: 1rem; margin-bottom: 0.3rem; }
+
+        .article-meta { font-size: 0.9rem; color: #5a7a9a; padding-left: 1rem; margin-bottom: 2rem; }
+
+        .cover-figure { margin: 0 0 2rem; }
+
+        .cover-image { width: 100%; display: block; border-radius: 1.2rem; border: 1px solid #d4e4f0; box-shadow: 0 12px 28px rgba(26,74,106,0.12); }
+
+        .cover-caption { text-align: center; font-size: 0.85rem; color: #5a7a9a; margin-top: 0.7rem; letter-spacing: 0.05em; }
+
+        .section { margin: 2.5rem 0; }
+
+        .section h2 { font-size: 1.6rem; font-weight: 600; color: #1a4a6a; border-left: 5px solid #5b9bd5; padding-left: 1rem; margin-bottom: 1.2rem; line-height: 1.4; }
+
+        .section h3 { font-size: 1.3rem; font-weight: 600; color: #2b5e8b; margin: 1.8rem 0 0.8rem; padding-left: 0.8rem; border-left: 3px solid #8ab8d8; }
+
+        .section h4 { font-size: 1.1rem; font-weight: 600; color: #2c5f7a; margin: 1.2rem 0 0.5rem; }
+
+        .section p { margin-bottom: 1rem; text-align: justify; font-size: 1.02rem; color: #2a3a4a; text-indent: 2em; }
+
+        .abstract-box { background: #f0f6fc; padding: 1.5rem 1.8rem; border-radius: 1.2rem; border-left: 4px solid #2e86c1; margin-bottom: 2rem; }
+
+        .abstract-box h3 { font-size: 1.2rem; color: #1a5276; margin-bottom: 0.8rem; border-left: none; padding-left: 0; }
+
+        .abstract-box p { font-size: 0.98rem; color: #2a4a5a; line-height: 1.8; margin-bottom: 0; text-indent: 2em; }
+
+        .toc-box { background: #f8fbfe; padding: 1.5rem 1.8rem; border-radius: 1.2rem; border-left: 4px solid #5b9bd5; }
+
+        .toc-box h3 { font-size: 1.2rem; color: #1a5276; margin-bottom: 1rem; border-left: none; padding-left: 0; }
+
+        .toc-box ul { list-style: none; padding-left: 0; }
+
+        .toc-box ul li { margin: 0.5rem 0; padding-left: 1.2rem; position: relative; font-size: 1rem; color: #2a4a5a; }
+
+        .toc-box ul li::before { content: "\25B8"; color: #2e86c1; font-weight: bold; position: absolute; left: 0; }
+
+        .toc-box ul ul { padding-left: 1.5rem; margin-top: 0.3rem; }
+
+        .toc-box ul ul li { font-size: 0.92rem; color: #3a5a6a; margin: 0.3rem 0; }
+
+        .toc-box ul ul li::before { content: "\25E6"; color: #5b9bd5; }
+
+        .toc-box a { color: #1a6a8a; text-decoration: none; transition: 0.2s; }
+
+        .toc-box a:hover { color: #0f4a6a; text-decoration: underline; }
+
+        .highlight-quote { background: #f0f6fc; border-radius: 0.8rem; padding: 1rem 1.5rem; margin: 1.2rem 0; border-left: 3px solid #8ab8d8; font-style: italic; color: #1a4a6a; text-indent: 2em; font-weight: 600; }
+
+        .core-point { font-weight: 600; color: #1a4a6a; }
+
+        .data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.88rem; }
+
+        .data-table th { background: #d4e4f0; color: #1a4a6a; font-weight: 600; padding: 0.6rem 0.5rem; border: 1px solid #b0c8de; text-align: center; }
+
+        .data-table td { padding: 0.5rem; border: 1px solid #c4d8ec; color: #2a3a4a; vertical-align: top; }
+
+        .data-table tr:nth-child(even) td { background: #f8fbfe; }
+
+        .comment-box { background: #f0f6fc; border-radius: 1.2rem; padding: 1.2rem; margin-top: 1rem; border: 1px solid #c4d8ec; }
+
+        .upload-note { font-size: 0.8rem; color: #5a7a9a; margin-top: 0.8rem; }
+
+        .upload-box { background: #f0f6fc; border-radius: 1.2rem; padding: 1.2rem; margin-top: 1rem; border: 1px solid #c4d8ec; }
+
+        .btn-upload { display: inline-block; background: #2e86c1; color: white; padding: 0.5rem 1.2rem; border-radius: 40px; text-decoration: none; font-weight: 500; margin-top: 0.5rem; transition: 0.2s; border: none; cursor: pointer; }
+
+        .btn-upload:hover { background: #1a5276; }
+
+        .upload-list { margin-top: 0.8rem; list-style: none; }
+
+        .upload-list li { margin: 0.6rem 0; }
+
+        .upload-list a { text-decoration: none; color: #1a6a8a; font-weight: 500; background: white; padding: 0.4rem 1rem; border-radius: 50px; border: 1px solid #c4d8ec; display: inline-block; transition: 0.2s; }
+
+        .upload-list a:hover { background: #e6f0fa; border-color: #8ab8d8; }
+
+        .footer-note { text-align: center; font-size: 0.8rem; color: #5a7a9a; margin-top: 2rem; }
+
+        @media (max-width: 650px) { .container { padding: 1.5rem 1.2rem; } .article-title { font-size: 1.5rem; } .section h2 { font-size: 1.3rem; } .section h3 { font-size: 1.15rem; } .data-table { font-size: 0.75rem; } .data-table th, .data-table td { padding: 0.3rem 0.2rem; } }
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <a href="index.html" class="back-link">← 返回系列主页</a>
+
+    <h1 class="article-title">“让潮水涨起来”</h1>
+
+    <p class="article-subtitle">——AI时代数学家的核心使命</p>
+
+    <p class="article-meta">曹军 · 2026年9月</p>
+
+    <figure class="cover-figure">
+
+        <img src="https://raw.githubusercontent.com/caojun1860/AI4Math/main/attachments/art6.jpg" alt="上涨的海水意象：幽蓝的知识森林中，潮水般的数学结构缓缓上涨、浸没孤立的问题礁石，一只可爱的蜘蛛在发光的结构网络上编织" class="cover-image">
+
+        <figcaption class="cover-caption">当潮水逐渐上涨，核桃将被自然浸泡裂开。</figcaption>
+
+    </figure>
+
+    <div class="section">
+
+        <div class="abstract-box">
+
+            <h3>📖 导读</h3>
+
+            <p>2026年9月，OpenAI以约一万个智能体、八十八小时逼近悬置九十年的纳维–斯托克斯难题，AI从问题直通答案的能力被再次确认。当答案本身越来越容易获得，数学研究中真正稀缺的东西正在迁移。本文认为，AI擅长把对人类而言必须逐层展开的中间认知过程压缩进高维表示与并行搜索，从而跨越从问题到答案的距离；数学家的核心价值因此不再是逐个求解问题，而是建构数学空间——打造数学结构，使一类问题的答案在其中自然涌现。全文围绕一个核心命题：AI寻找答案，数学创造让答案自然出现的世界。</p>
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <div class="toc-box">
+
+            <h3>📋 目录</h3>
+
+            <ul>
+
+<li><a href="#intro">引言：一万个智能体之后，数学家还剩什么</a></li>
+
+<li><a href="#sec1">一、AI直通答案：解题范式的重估</a></li>
+
+<li><a href="#sec2">二、让潮水涨起来：数学空间与结构压缩</a></li>
+
+<li><a href="#sec3">三、从真问题生长数学：数学空间的打开、连接与生长</a></li>
+
+<li><a href="#sec4">四、数学家的位置：在现实问题与AI求解之间建造结构</a></li>
+
+<li><a href="#conclusion">结语：继续让潮水上涨</a></li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+<div class="section" id="intro">
+
+<h2>引言　一万个智能体之后，数学家还剩什么</h2>
+
+<p>2026年9月，OpenAI公布了纳维–斯托克斯方程存在性与光滑性问题的一个解答：约一万个自主AI智能体，在八十八小时内构造出三维方程在有限时间形成奇点的解，又用十七小时完成形式化验证。这个悬置约九十年的千禧年难题，似乎在AI的协助下被跨过了最后障碍。当AI开始攻克开放难题，一个根本问题摆在数学面前：如果“在已有理论中寻找证明”这件事正在被机器接管，数学家的核心使命究竟应该是什么？本文的主要观点是：AI擅长跨越人类认知的中间维度、从问题直通答案，那么数学家的核心价值就不应再是追求某一个具体问题的直接答案，而是建构数学空间——通过打造数学结构，让一类问题的答案在其中自然涌现。</p>
+
+</div>
+
+<div class="section" id="sec1">
+
+<h2>一、AI直通答案：解题范式的重估</h2>
+
+<p>人类数学研究和AI解决数学问题，并不完全遵循相同的认知路径。人类通常需要把中间结构显式化：提出定义、建立引理、寻找关键估计、组织证明，并形成一条能够被理解、检验和传递的推理路径。人的注意力和工作记忆有限，因此在同一时间真正能够深入展开的路线并不多。AI则可以依托高维表示、大规模搜索、代码执行和并行智能体，在不完全遵循人类已有认知路线的情况下探索大量可能性。这里并不是说AI“不需要中间步骤”，而是说，大量对人类而言必须逐层展开的中间认知过程，可以被AI压缩到高维表示、搜索和并行计算之中。</p>
+
+<p>从使用者的角度看，这表现为一种从问题直通答案的“魔法传送门”模式。OpenAI此次纳维–斯托克斯实验具有某种象征意义：任务从有标准答案的习题进入开放问题，组织方式从单模型对话发展为大规模智能体协作，并进一步把自然语言数学证明与形式化验证连接起来。可以预期，越来越多的数学活动将被这种方式显著加速。这些工作本身不会因此失去数学价值，但它们作为“稀缺的人类技能”的地位可能逐渐下降。真正值得重视的问题于是变成：如果答案越来越容易获得，那么AI时代数学研究中真正稀缺的东西是什么？</p>
+
+</div>
+
+<div class="section" id="sec2">
+
+<h2>二、让潮水涨起来：数学空间与结构压缩</h2>
+
+<p>假设未来AI可以分别解决一万个问题，这当然已经是一种极其强大的能力。但数学家仍然会继续追问：为什么这些问题具有类似的答案？它们背后是否存在同一种机制？能否找到一个统一结构，使这一万个问题不再需要逐个求解？如果最终发现这些问题都属于某个数学结构，并且存在一个统一定理，那么原来的一万个答案就被压缩成了一个结构性的理解。这揭示了数学非常独特的一种能力：</p>
+
+<div class="highlight-quote">AI 扩大能够求解的问题数量，数学则减少必须逐个求解的问题数量。</div>
+
+<p>最好的数学理论甚至会让原来的问题“消失”。许多彼此孤立、看起来各不相同的问题，在正确的理论中可能只是一个一般原理的不同表现。数学的最高层活动因此并不只是生产更多答案，而是把大量答案压缩成结构。</p>
+
+<p>这种数学观并不是AI时代才出现。格罗滕迪克曾用一个著名的意象描述自己的研究方式。他区分了一种“锤子和凿子式”的数学与另一种更接近“上涨的海水”的数学：前者把一个困难问题当作坚硬的对象，从几个薄弱处不断攻击；后者则不断扩展问题周围的理论环境，直到原来坚硬的障碍被一个更广阔的数学世界包围、浸没，最终在新的理论中自然地“溶解”。这个比喻非常接近本文所谓的“数学空间”。</p>
+
+<div class="highlight-quote">不是攻击问题，而是改变问题所处的数学环境。</div>
+
+<p>给定一个重要问题，我们可以把围绕它逐渐建立起来的一整套数学环境，称为这个问题的数学空间。当这个空间的结构建立得足够好以后，原来需要被单独“攻击”的问题，就可能成为结构中的自然推论。因此：</p>
+
+<div class="highlight-quote">AI 擅长在空间中寻找通向答案的路径；数学家的更高价值，则是建造空间，使答案在其中自然浮现。</div>
+
+</div>
+
+<div class="section" id="sec3">
+
+<h2>三、从真问题生长数学：数学空间的打开、连接与生长</h2>
+
+<p>数学空间不应该只从已有数学理论内部生长，它还可以、而且应该不断从真实世界中被打开。面对一个新的科学或工程问题，传统做法往往首先询问“已有数学中有什么工具可以解决它”；如今更具创造性的提问则是：“这个问题真正需要什么数学？”数学史上这种双向生长反复发生：热传导推动了 Fourier 分析，偏微分方程推动了 Sobolev 空间和分布理论，统计物理推动了概率论与随机过程，资源配置问题推动了最优输运，信息传输问题推动了熵与信息论。AI的作用在于大大推进了科研平权，把打造数学空间的能力从少数天才转交给更多的科研工作者。因此，一个重要的研究理念可以概括为：</p>
+
+<div class="highlight-quote">让数学走进真问题，从真问题中生长新的数学。</div>
+
+<p>AI的重要作用之一，是显著降低跨学科进入、文献理解、模型比较和技术试探的成本，使更多数学家能够靠近过去进入门槛极高的科学问题。更进一步，不同现实问题打开的数学空间也不应彼此孤立。它们可能分别来自湍流、材料科学和神经网络，看起来毫无关系，但数学化之后，可能都呈现出多尺度、临界性、稀疏性、非局部性或能量耗散结构。于是数学家的另一项重要工作随之出现：从这些连接中，也许可以进一步生长出一个更高层的统一理论。这也意味着，数学知识的组织方式可能逐渐从传统的“学科树”，向更加复杂的“知识网”生长。</p>
+
+<p>在这样的视角下，一篇论文的意义也需要重新理解。论文当然仍然是数学严格性和学术交流的基本载体，但一篇论文不应只回答“我们又证明了哪个定理”，还应该回答“这个定理在整个数学空间中位于哪里”：一个新的定理解决了哪个结构性缺口？它揭示了怎样的机制？它与已有结果是什么关系？边界在哪里？什么情况下会失败？能够连接到什么新的问题？因此，一个数学空间真正成熟的标志，不是其中论文越来越多，而是其中的结构越来越清楚。单篇论文提供严格的局部推进，而数学空间决定这些局部推进如何共同形成结构性的理解。从这个意义上说：</p>
+
+<div class="highlight-quote">AI 时代的数学论文，不应只是一个技术问题的解答，而应成为数学空间不断上涨的理解之潮中的一片浪花。</div>
+
+</div>
+
+<div class="section" id="sec4">
+
+<h2>四、数学家的位置：在现实问题与AI求解之间建造结构</h2>
+
+<p>如果数学家不断建立新的理论，而这些论文、讲义、代码和形式化证明又不断成为AI可以学习的知识，那么AI自然会逐渐掌握越来越多今天仍属于数学家的技能。因此，人类数学家的长期价值很难建立在某一种固定技术之上。任何能够被稳定描述、重复展示并大量积累的数据化技能，都可能逐渐被机器吸收。更可持续的方向，是不断向知识生产的上游移动。因此：</p>
+
+<div class="highlight-quote">数学家不是在已有地图上跑得最快的人，而是不断重新画地图的人。</div>
+
+<p>另一方面，在现实问题这一端，未来同样可能出现一种新的局面。一个工程师面对具体工程问题，完全可能直接向AI说明目标、约束和数据，AI随后给出一个足够优秀的设计方案。从工程师的角度看，他甚至没有必要理解背后的全部数学。</p>
+
+<p>这并不意味着数学失去了价值。成熟的数学往往最终会沉入基础设施，而且越成功越不可见：工程师使用GPS不必理解微分几何，使用有限元软件也无需重新证明 Sobolev 嵌入。真正的问题不是“工程师是否感受到数学的存在”，而是——下一代基础设施从哪里来？</p>
+
+<p>工程师关心“怎样让系统工作”，AI可能很快给出一个有效方案；数学家则继续追问：为什么有效？究竟是什么机制使它有效？真正重要的参数是什么？有没有临界尺度？哪些条件下它必然失败？能否把一个设备上的经验提升为一类系统的共同理论？数学家实际上掌握着两个关键转换：其一，从现实问题到数学问题；其二，从大量答案到数学理论。前者需要数学化、抽象与正确表示，后者需要结构发现、理论压缩与统一。所以未来三者之间或许会形成这样的关系：</p>
+
+<div class="highlight-quote">工程师制造可用的解决方案，AI 扩大解决问题的规模，而数学家把具体答案提升为可迁移的结构，并不断创造下一代数学基础设施。</div>
+
+<p>数学家真正需要保持的，并不是某种AI永远不会的技能，而是持续参与知识生产的上游：不断打开新的问题空间，不断建立新的语言，不断发现新的结构，并不断把人类尚未理解的区域变成新的数学世界。</p>
+
+</div>
+
+<div class="section" id="conclusion">
+
+<h2>结语　继续让潮水上涨</h2>
+
+<p>人工智能可能越来越擅长缩短从问题到答案的距离。但答案越来越容易获得，并不会使数学失去意义；相反，它可能使我们更清楚地看到数学真正珍贵的部分：为什么答案如此？为什么不同问题拥有共同结构？哪些变量真正重要？什么机制决定系统行为？什么可以推广，什么不能推广？什么只是局部技巧，什么真正改变了我们理解一类问题的方式？数学的意义，不只在于给问题找到答案，更在于创造一种结构，使答案从偶然变成必然。</p>
+
+<p>数学与现实世界之间也不再只是“数学提供工具、现实提供应用”的单向关系，而成为一种双向生长。数学家不只是一次次跨越从问题到答案的距离，而是在不断改变问题所处的环境：让复杂问题获得正确的表示，让孤立答案凝聚成统一结构，让不同现实问题通过数学彼此连接。</p>
+
+<div class="highlight-quote">AI 寻找答案，数学创造让答案自然出现的世界。</div>
+
+<p>如果格罗滕迪克把自己的研究方式比作不断上涨的海水，那么AI时代数学家的使命，也许仍然是继续让潮水上涨：不是和机器竞争谁能更快地击碎每一颗坚果，而是不断创造新的数学世界，使越来越多的问题在其中自然浮现，最终自然消解。</p>
+
+</div>
+
+    <div class="section" id="commentSection">
+
+        <h2 style="font-size:1.4rem; border-left:5px solid #5b9bd5; padding-left:1rem; color:#1a4a6a;">💬 留言讨论</h2>
+
+        <div class="comment-box">
+
+            <div id="comments-container"></div>
+
+            <div class="upload-note" style="margin-top:0.8rem;">
+
+                💡 提示：留言需要 GitHub 账号。评论区基于 GitHub Issues，首次加载请稍候。<br>
+
+                ⚠️ 请确保本页面对应的 GitHub 仓库已启用 Issues 且为公开仓库。
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="section" id="uploadSection">
+
+        <h2 style="font-size:1.4rem; border-left:5px solid #5b9bd5; padding-left:1rem; color:#1a4a6a;">📤 上传文件 & 共享附件</h2>
+
+        <div class="upload-box">
+
+            <p>你可以通过以下方式上传补充材料（如笔记、代码、PDF等），并获取分享链接。</p>
+
+            <a href="https://tmpfiles.org/" target="_blank" class="btn-upload">📎 点击上传文件 (临时托管)</a>
+
+            <div class="upload-note">
+
+                🔗 上传后，将生成的链接粘贴到下方“已上传附件列表”中，方便他人下载。<br>
+
+                ⚠️ 临时文件可能失效，建议使用 GitHub Releases 或云盘长期存储。
+
+            </div>
+
+            <div style="margin-top: 1.2rem;">
+
+                <label style="font-weight:500;">📋 记录新附件链接：</label><br>
+
+                <input type="text" id="newUploadLink" placeholder="粘贴文件链接" style="width: 70%; padding: 0.4rem; margin: 0.5rem 0; border-radius: 30px; border: 1px solid #c4d8ec;">
+
+                <input type="text" id="newUploadName" placeholder="附件名称（可选）" style="width: 70%; padding: 0.4rem; margin: 0.5rem 0; border-radius: 30px; border: 1px solid #c4d8ec;">
+
+                <button onclick="addUploadRecord()" style="background: #2e86c1; color: white; border: none; padding: 0.4rem 1rem; border-radius: 30px; cursor: pointer;">添加记录</button>
+
+                <ul id="uploadRecordList" class="upload-list" style="margin-top: 1rem;"></ul>
+
+                <div class="upload-note">✅ 所有记录仅保存在你当前浏览器中，清除缓存会丢失。建议将重要链接直接附在留言区。</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-note">
+
+        💬 留言板块基于 <a href="https://github.com/utterance/utterances" target="_blank" style="color:#1a6a8a;">Utterances</a>，需要 GitHub 账号参与讨论。
+
+    </div>
+
+</div>
+
+<script>
+
+    let uploadRecords = [];
+
+    function loadUploadRecords() {
+
+        const key = window.location.pathname.replace(/^.*\/([^/]+)\.html$/, '$1') || 'default';
+
+        const stored = localStorage.getItem('uploads_' + key);
+
+        uploadRecords = stored ? JSON.parse(stored) : [];
+
+        renderUploadRecords();
+
+    }
+
+    function addUploadRecord() {
+
+        const link = document.getElementById('newUploadLink').value.trim();
+
+        const name = document.getElementById('newUploadName').value.trim() || '未命名附件';
+
+        if (!link) { alert('请填写文件链接'); return; }
+
+        uploadRecords.push({ link, name, time: new Date().toLocaleString() });
+
+        const key = window.location.pathname.replace(/^.*\/([^/]+)\.html$/, '$1') || 'default';
+
+        localStorage.setItem('uploads_' + key, JSON.stringify(uploadRecords));
+
+        document.getElementById('newUploadLink').value = '';
+
+        document.getElementById('newUploadName').value = '';
+
+        renderUploadRecords();
+
+    }
+
+    function deleteUploadRecord(index) {
+
+        uploadRecords.splice(index, 1);
+
+        const key = window.location.pathname.replace(/^.*\/([^/]+)\.html$/, '$1') || 'default';
+
+        localStorage.setItem('uploads_' + key, JSON.stringify(uploadRecords));
+
+        renderUploadRecords();
+
+    }
+
+    function renderUploadRecords() {
+
+        const listEl = document.getElementById('uploadRecordList');
+
+        if (!listEl) return;
+
+        if (uploadRecords.length === 0) { listEl.innerHTML = '<li style="color:#5a7a9a;">暂无上传记录，点击上方按钮添加。</li>'; return; }
+
+        listEl.innerHTML = uploadRecords.map((rec, idx) => `
+
+            <li>
+
+                <a href="${rec.link}" target="_blank">📁 ${rec.name}</a>
+
+                <span style="font-size:0.75rem; color:#5a7a9a; margin-left:0.5rem;">${rec.time}</span>
+
+                <button onclick="deleteUploadRecord(${idx})" style="margin-left:1rem; background:none; border:none; color:#b35f5f; cursor:pointer;">🗑️</button>
+
+            </li>`).join('');
+
+    }
+
+    if (document.getElementById('uploadRecordList')) {
+
+        loadUploadRecords();
+
+        window.addUploadRecord = addUploadRecord;
+
+        window.deleteUploadRecord = deleteUploadRecord;
+
+    }
+
+</script>
+
+<script src="https://utteranc.es/client.js"
+
+        repo="caojun1860/Workflow-temple"
+
+        issue-term="pathname"
+
+        label="comment"
+
+        theme="github-light"
+
+        crossorigin="anonymous"
+
+        async>
+
+</script>
+
+</body>
+
+</html>
