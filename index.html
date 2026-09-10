@@ -442,7 +442,7 @@
 
         <div class="visitor-counter">
 
-            👀 本页已被访问 <span id="visitCount">0</span> 次
+            👀 本页历史累计访问 <span id="busuanzi_value_page_pv">–</span> 次<span style="font-weight:400;font-size:0.8rem;">（服务端累计）</span>
 
         </div>
 
@@ -632,19 +632,40 @@
 
     });
 
-    // 访问者数量统计（基于 localStorage）
+    // 历史访问量统计：使用「不蒜子 busuanzi」服务端计数，按本页网址全球累计，
+    // 不依赖 localStorage，换设备、清缓存都不会重置。脚本会自动填充
+    // #busuanzi_value_page_pv（本页PV）、#busuanzi_value_site_pv（整站PV）、
+    // #busuanzi_value_site_uv（独立访客数）。
 
-    (function() {
+    (function () {
 
-        const key = 'math_notes_visit_count';
+        var s = document.createElement('script');
 
-        let count = parseInt(localStorage.getItem(key) || '0', 10);
+        s.async = true;
 
-        count += 1;
+        s.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
 
-        localStorage.setItem(key, count.toString());
+        // 兜底：脚本加载失败（被广告拦截器拦截/网络不通）时显示占位符，而不是一直停在初始值
 
-        document.getElementById('visitCount').textContent = count;
+        s.onerror = function () {
+
+            var el = document.getElementById('busuanzi_value_page_pv');
+
+            if (el && (el.textContent === '' || el.textContent === '–')) el.textContent = '—';
+
+        };
+
+        document.body.appendChild(s);
+
+        // 8 秒后仍未取到数字，也显示占位符
+
+        setTimeout(function () {
+
+            var el = document.getElementById('busuanzi_value_page_pv');
+
+            if (el && (el.textContent === '' || el.textContent === '–')) el.textContent = '—';
+
+        }, 8000);
 
     })();
 
