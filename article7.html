@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>重画地图——AI时代的专业观：尺度突破与初心</title>
+<style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #e6f0fa; font-family: 'Segoe UI', Roboto, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif; color: #1a2a3a; padding: 2rem 1rem; line-height: 1.8; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 2rem; box-shadow: 0 20px 35px rgba(0,0,0,0.05); padding: 2.5rem 2.5rem 3rem; border: 1px solid #d4e4f0; }
+        .back-link { display: inline-block; margin-bottom: 1.8rem; text-decoration: none; color: #1a6a8a; font-weight: 500; background: #e6f0fa; padding: 0.4rem 1rem; border-radius: 40px; transition: 0.2s; }
+        .back-link:hover { background: #cfe0f0; }
+        .article-title { font-size: 2rem; margin-bottom: 0.5rem; color: #1a3a5a; border-left: 5px solid #2e86c1; padding-left: 1rem; line-height: 1.4; }
+        .article-subtitle { font-size: 1.1rem; color: #2c5f7a; padding-left: 1rem; margin-bottom: 0.3rem; }
+        .article-meta { font-size: 0.9rem; color: #5a7a9a; padding-left: 1rem; margin-bottom: 2rem; }
+        .cover-figure { margin: 0 0 2rem; }
+        .cover-image { width: 100%; display: block; border-radius: 1.2rem; border: 1px solid #d4e4f0; box-shadow: 0 12px 28px rgba(26,74,106,0.12); }
+        .cover-caption { text-align: center; font-size: 0.85rem; color: #5a7a9a; margin-top: 0.7rem; letter-spacing: 0.05em; }
+        .section { margin: 2.5rem 0; }
+        .section h2 { font-size: 1.6rem; font-weight: 600; color: #1a4a6a; border-left: 5px solid #5b9bd5; padding-left: 1rem; margin-bottom: 1.2rem; line-height: 1.4; }
+        .section p { margin-bottom: 1rem; text-align: justify; font-size: 1.02rem; color: #2a3a4a; text-indent: 2em; }
+        .abstract-box { background: #f0f6fc; padding: 1.5rem 1.8rem; border-radius: 1.2rem; border-left: 4px solid #2e86c1; margin-bottom: 2rem; }
+        .abstract-box h3 { font-size: 1.2rem; color: #1a5276; margin-bottom: 0.8rem; }
+        .abstract-box p { font-size: 0.98rem; color: #2a4a5a; line-height: 1.8; margin-bottom: 0; text-indent: 2em; }
+        .toc-box { background: #f8fbfe; padding: 1.5rem 1.8rem; border-radius: 1.2rem; border-left: 4px solid #5b9bd5; }
+        .toc-box h3 { font-size: 1.2rem; color: #1a5276; margin-bottom: 1rem; }
+        .toc-box ul { list-style: none; padding-left: 0; }
+        .toc-box ul li { margin: 0.5rem 0; padding-left: 1.2rem; position: relative; font-size: 1rem; color: #2a4a5a; }
+        .toc-box ul li::before { content: "\25B8"; color: #2e86c1; font-weight: bold; position: absolute; left: 0; }
+        .toc-box a { color: #1a6a8a; text-decoration: none; transition: 0.2s; }
+        .toc-box a:hover { color: #0f4a6a; text-decoration: underline; }
+        .highlight-quote { background: #f0f6fc; border-radius: 0.8rem; padding: 1rem 1.5rem; margin: 1.2rem 0; border-left: 3px solid #8ab8d8; font-style: italic; color: #1a4a6a; text-indent: 2em; font-weight: 600; }
+        .comment-box { background: #f0f6fc; border-radius: 1.2rem; padding: 1.2rem; margin-top: 1rem; border: 1px solid #c4d8ec; }
+        .upload-note { font-size: 0.8rem; color: #5a7a9a; margin-top: 0.8rem; }
+        .upload-box { background: #f0f6fc; border-radius: 1.2rem; padding: 1.2rem; margin-top: 1rem; border: 1px solid #c4d8ec; }
+        .btn-upload { display: inline-block; background: #2e86c1; color: white; padding: 0.5rem 1.2rem; border-radius: 40px; text-decoration: none; font-weight: 500; margin-top: 0.5rem; transition: 0.2s; border: none; cursor: pointer; }
+        .btn-upload:hover { background: #1a5276; }
+        .upload-list { margin-top: 0.8rem; list-style: none; }
+        .upload-list li { margin: 0.6rem 0; }
+        .upload-list a { text-decoration: none; color: #1a6a8a; font-weight: 500; background: white; padding: 0.4rem 1rem; border-radius: 50px; border: 1px solid #c4d8ec; display: inline-block; transition: 0.2s; }
+        .upload-list a:hover { background: #e6f0fa; border-color: #8ab8d8; }
+        .footer-note { text-align: center; font-size: 0.8rem; color: #5a7a9a; margin-top: 2rem; }
+        @media (max-width: 650px) { .container { padding: 1.5rem 1.2rem; } .article-title { font-size: 1.5rem; } .section h2 { font-size: 1.3rem; } }
+</style>
+</head>
+<body>
+<div class="container">
+
+    <a href="index.html" class="back-link">← 返回系列主页</a>
+
+    <h1 class="article-title">重画地图</h1>
+    <p class="article-subtitle">——AI时代的专业观：尺度突破与初心</p>
+    <p class="article-meta">曹军 · 2026年10月</p>
+
+    <figure class="cover-figure">
+        <img src="https://raw.githubusercontent.com/caojun1860/AI4Math/main/attachments/art7.jpg" alt="重画地图意象：一位徐霞客式的行者拄杖立于发光的书页阶梯前，北极星高悬，云海与知识网络交织" class="cover-image">
+        <figcaption class="cover-caption">向外开辟新地图，向内重构旧地图；北极星是不变的初心。</figcaption>
+    </figure>
+
+    <div class="section">
+        <div class="abstract-box">
+            <h3>导读</h3>
+            <p>当 AI 可以直接替我们抵达终点，漫长的专业训练还剩下什么意义？不会编程的人能借助 AI 写出程序，刚入门的人能迅速拿到知识地图，一个复杂问题也能被同时铺开许多条路径，过去必须多年训练才获得的一部分能力，正在变成随时可调用的外部资源。本文的判断是：专业给予一个人的，不只是更多知识和技能，而是更多看世界的分辨率，以及理解不同尺度之间关系的能力。AI 的优势不仅在算得更快，更在于现实规律被转化为数字表征之后，它能在相互连接的数据与工具之间大规模搜索、组合；专业的高阶价值，也不只是发现新地图，还包括选择、切换、压缩和重组已有地图。AI 能把我们送到目的地，但“抵达”不等于“认识”；当可走的路越来越多，新的困难会从“没有路”变成“路太多”，这时需要一个更稳定的锚——初心，让我们仍记得真正想理解什么。</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="toc-box">
+            <h3>目录</h3>
+            <ul>
+                <li><a href="#intro">引言：如果 AI 已经可以把我们送到终点</a></li>
+                <li><a href="#sec1">一、地图之内：AI 为什么能够大规模探索</a></li>
+                <li><a href="#sec2">二、地图有层：专业，是理解尺度及其关系</a></li>
+                <li><a href="#sec3">三、地图从脚下长出来：为什么基础训练仍然重要</a></li>
+                <li><a href="#sec4">四、重画地图：从探索尺度，到重构尺度</a></li>
+                <li><a href="#sec5">五、为什么出发：初心是尺度变化中的不变量</a></li>
+                <li><a href="#conclusion">结语：徐霞客不会被飞机替代</a></li>
+            </ul>
+        </div>
+    </div>
+
+<div class="section" id="intro">
+<h2>引言　如果 AI 已经可以把我们送到终点</h2>
+<p>很长一段时间里，我们对“学一门专业”有稳定理解：想成为医生要多年学习解剖、病理和临床，想成为程序员要一点点学数据结构与算法，想做研究要花很多年读论文、练方法。这些过程之所以理所当然，是因为知识和能力长期捆绑在人身上——你不会，就做不到；要获得更大能力，就必须投入更多时间，或把不同专业的人组织起来。</p>
+<p>AI正在大规模松动这种关系。一个几乎不会编程的人可以在 AI 帮助下写出能运行的小程序，一个不熟悉某行业的人能很快得到结构完整的分析，刚入门的学生也能迅速了解文献脉络与技术路线。于是问题变得尖锐：如果导航能把我们送到目的地，为什么还要培养辨别方向？如果 AI 能写代码，为什么还要学编程？</p>
+<p>“基础仍然重要”是个最简单、却不令人满意的回答。真正要回答的不是基础重不重要，而是：专业训练究竟在一个人身上留下了什么，这些东西为什么不能由最终结果直接代替？也许专业真正给予一个人的，不只是更多答案，而是一整套观察、理解和组织世界的尺度系统。</p>
+</div>
+
+<div class="section" id="sec1">
+<h2>一、地图之内：AI 为什么能够大规模探索</h2>
+<p>假设你去一座陌生城市旅行三天，预算固定，也大致知道自己喜欢历史建筑、美食和步行。一个人通常需要花时间看攻略、制定和比较多种方案；AI 却能在很短时间里综合交通、距离、天气和个人偏好，快速提供方案。这里真正发生的，不是 AI 比人更懂“旅行的意义”，而是：当目标、地图和评价标准已经给定，它能在这个问题空间里展开更多可能性。</p>
+<p>但若只把 AI 的优势理解成算得快，还不够。一座真实城市极其复杂，为了制定行程，我们可以暂时忽略大量细节，只保留地点、距离、时间、费用和偏好，把复杂城市转化成一张可计算的数字地图。这包含两步：先选择一种观察城市的尺度，再把该尺度上的信息变成机器能处理的数据和结构——这就是数字表征。一旦形成有效表征，分散的信息进入同一个计算空间，交通、酒店、天气和评价经接口连通，大量路线不必在真实城市逐一尝试，而能先在数字空间比较；资料进入分析、分析交给程序、程序再用于模拟验证，现实问题由此变成数字空间里可以大规模探索、被高速连接与重组的对象。</p>
+<p>这种能力在前沿科研中同样发生，而且更夸张。2026 年 10 月，OpenAI 把一个尚未发布的内部模型产出的结果整体公开：模型先被给予约四千个开放研究问题，最终一次性产出七百二十二篇数学手稿、归为三百七十二个结果家族，覆盖数论、代数几何、组合数学、理论计算机、数学物理等十七个分支，宣称解决了数学前五百个开放问题中的约九十个；平均每得到一个结果所耗算力，约相当于 ChatGPT Pro 连续思考三小时，其中一部分证明还被写成可由计算机逐行核验的 Lean 代码。</p>
+<div class="highlight-quote">AI 并不对世界本身有优势，它对世界的数据表征有优势；一个尺度能被穷尽，前提是它已经被翻译成数据。</div>
+<p>不过这种优势有个前提：数字地图必须能有效表达我们真正关心的问题。交通地图无法解释一座城市的文化，成绩单不能完整描述好奇心与成长。任何表征都是一种选择，决定什么被保留、什么被忽略；如果真正重要的变量没有进入地图，搜得再充分也可能找不到答案。谁来判断地图是否合适？现实世界从来不只有一张地图。</p>
+<figure class="cover-figure" style="margin-top:1.6rem;">
+    <img src="https://raw.githubusercontent.com/caojun1860/AI4Math/main/attachments/art7-fig1.png" alt="层内穷举与层间跃迁示意图" class="cover-image">
+    <figcaption class="cover-caption">图1　层内穷举是 AI 的领地，层间跃迁是人的工作</figcaption>
+</figure>
+</div>
+
+<div class="section" id="sec2">
+<h2>二、地图有层：专业，是理解尺度及其关系</h2>
+<p>先把两个词对齐：一张地图，对应一种观察事物的尺度；换一张地图，就是换一个尺度。所谓专业，就是一个人在长期实践中形成、并能自如调度的一整套尺度系统。一座城市从来没有唯一一张地图：游客的地图突出景点，地铁图只关心站点如何连接，开车的人需要拥堵信息，规划者看功能分区，历史学家则会打开河流水系和旧城墙。它们描绘同一座城市，回答的却不是同一个问题——问“机场怎么去”，地铁图很有效；问“城市为什么是今天这个形状”，就必须换一张地图。</p>
+<p>同一个道理，用最简单的算术就能看清。求 1+2+3+…+100，逐项相加要做一百次；可一旦看出首尾两两配对——1 和 100、2 和 99，每对都是 101、一共五十对——答案 5050 一次就算出。这里发生的不是算得更快，而是换了一个看法，把一百次劳动压缩成一次。很多高级方法都有类似特征：不在原尺度上做得更快，而是改变尺度，让整层劳动不再需要逐个完成。</p>
+<p>这恰好能把“表征”和“尺度”联系在一起：一种尺度，本质上就是一套看世界的表征框架；地图能被机器跑遍，是因为它先被表征成了数据；所谓数字通道，就是地图与地图之间被打通的路。</p>
+<p>但拥有十张地图，若不知道它们之间的关系，仍可能无法理解城市。以交通拥堵为例：只看道路图会想拓宽道路，只看人口图会想调整居住分布；可把交通、人口、住房和商业几张地图叠在一起，可能发现大量人口住在外围、岗位集中在中心、而公共交通没有跟上——问题不再是某条路够不够宽，而是不同系统之间的关系。成熟专家会追问哪几个角度该连起来、有没有共同结构、一个尺度的变化如何传导到另一个尺度。在这个意义上，专业不是装满知识的仓库，而是一张不断生长的尺度关系网络。</p>
+<p>AI 让执行性能力更容易被外部调用，这是能力平权；但当人人都能快速获得几十种方案，差距会从“能不能给出方案”，转向“能不能判断方案处在哪个尺度、是不是该换地图或重组地图”。过去强调我会不会做，未来更强调我是否理解它在哪个尺度、与哪些问题相连。那么这些分辨率从哪里来？如果 AI 能直接把我们送到更高一层，还需要那些缓慢、笨拙的基础训练吗？</p>
+</div>
+
+<div class="section" id="sec3">
+<h2>三、地图从脚下长出来：为什么基础训练仍然重要</h2>
+<p>一个人刚搬到陌生城市，每天靠导航：前方右转、两站换乘、几号出口，他几乎从不迷路。半年后手机没电，他却发现自己虽去过很多地方，仍说不清河在哪边、市中心是什么方向、两个常去之处其实离得多近。另一个人开始时常走错路、多绕远，但在不断观察、比较和修正中逐渐形成方向感，城市开始在他头脑里长出一张地图。两人都能抵达终点，拥有的却不同：一个拿到路径指令，另一个长出内部地图。</p>
+<p>所以基础训练的意义要重新定位：它不只是“先掌握基础才能做复杂任务”的通道，更是帮助一个人形成判断事物的认知坐标系。学写作会形成对逻辑结构的判断，学历史会形成观察社会变化的时间尺度，学数学会形成区分条件、检验推理的习惯。这些训练还不断建立尺度之间的联系，让人能同时判断局部步骤、整体方向与结果是否合理。所谓专业直觉并不神秘，它在相当程度上来自不同尺度的反复校准。</p>
+<p>这并不意味着所有旧训练都原封不动：计算器普及后不必再手算大量乘除。要区分哪些路只为到达、哪些路会在行走中改变一个人：只反复执行固定操作、不再产生认知增益的训练可交给机器；能帮助人形成概念、判断与结构理解的训练，学习者仍需亲历关键过程。更合理的方式是先形成初步判断，再用 AI 比较、检验，最后修正认识。</p>
+<p>徐霞客若生活在今天，当然会坐飞机和高铁，不必为证明自己是旅行家就坚持处处步行。但他真正重要的从来不是走得慢，而是在行走中观察、比较、记录，追问河流从哪里发源、山川怎样相连。飞机替代的是移动方式，却不能替代认识世界的过程，AI 也是如此。真正需要警惕的，是把“被送到目的地”误认为“已经认识了世界”。而更高阶的专业能力，还体现在知道什么时候应该重新画地图。</p>
+</div>
+
+<div class="section" id="sec4">
+<h2>四、重画地图：从探索尺度，到重构尺度</h2>
+<p>一家餐厅生意越来越差，最初的问题是“菜单是不是该调”，于是分析哪些菜受欢迎、哪些利润高；这些都能交给 AI，它很快给出许多优化，可调整后依旧没有起色。有经验的人会重新发问：真的是菜单吗？也许是定价，也许是顾客定位，再往上也许是这片区域的客流结构已经改变，最终问题甚至变成——这里是否还适合继续开一家餐厅。真正改变局面的，往往不是在原问题里找到更漂亮的答案，而是意识到问题本身需要被重新定义。</p>
+<p>但重画地图并不只有“开辟新土地”一种。很多创新不是发现未知领域，而是让已有地图之间的关系被重新组织：交通、住房、商业各有地图，分开看都局部正确，叠在一起却可能浮现新解释——拥堵可能与人口迁移、岗位分布、住房价格共同有关，地图没有错，缺的是连接。还有创新是减少地图：上百个现象发现共同规律后被压缩成一个结构；反过来，“提高教育质量”若不能展开到教师怎样教、学生怎样学，也无法变成行动。</p>
+<p>把这些活动整理出来，高阶认知中的尺度操作可以概括为六种彼此交叉、不必同时出现的做法。它们不是固定步骤，而是围绕真实问题对尺度及其关系进行选择、转换、压缩、展开、重组和创造的能力，称为尺度治理。专业的最高价值，不是拥有最多知识，而是能根据问题需要自由组织和重构尺度。但重画地图不等于随意画，还需要贯穿始终的现实检验：新地图保留了哪些关键结构、忽略了什么，是否比旧地图更好地回答了真问题。有效的认知循环是把现实转化为表征，在数字空间探索，再带回现实检验、修正表征。</p>
+<p>还必须诚实面对：AI 在学习中会形成自己的内部表示，有些并非人事先规定，不能断言创造尺度永远只属于人类。尺度形成有三种来源：世界在微观聚集时涌现宏观结构，人类通过抽象创造概念，AI 也可能形成尚未被命名的有效表示。未来 AI 或许会先发现人一时看不懂的新尺度，那时人的工作还包括理解它、把它压缩成人能理解的概念——这是下一篇的主题。更稳健的判断不是守住机器永远进不来的领地，而是培养持续更新尺度、与 AI 共同绘制地图的能力。</p>
+<p>只是当地图越来越多、彼此关系越来越复杂，还有另一种危险：我们可能越来越擅长画地图，却渐渐忘记究竟为什么要画。</p>
+</div>
+
+<div class="section" id="sec5">
+<h2>五、为什么出发：初心是尺度变化中的不变量</h2>
+<p>过去我们常担心没有路，AI 时代更需要担心路太多。一个问题交出去很快出现十条路线，每条又分出子问题；尺度越多，地图之间的新连接也越多，问题空间迅速膨胀。未来的困难很可能不是“不知道下一步做什么”，而是可以做的事太多、却不知哪件真正值得。</p>
+<p>这个更稳定的参照物，就是初心，而且它不是最初那个问题。一个人先问“怎样找到好工作”，后来要先问“什么才算好工作”，最后发现自己真正关心的是“想过一种怎样的生活”；最初的问题没有消失，而是被放进更大的尺度。研究者也常从具体结论出发，逐渐发现真正关心的是某一类现象为何反复出现。具体问题、方法甚至领域都会变，但“我究竟想理解什么”会越来越清晰。初心不是坚持最初做法，而是在改变问题的过程中让真正的问题越来越清楚。</p>
+<div class="highlight-quote">尺度是变量，初心是不变量：尺度、工具、路线乃至具体目标都可以变，但每一次变换之后，都要回到初心，判断自己是否更接近真正想理解的东西。</div>
+<p>初心不是另一张更高的地图，而是判断为什么重画、怎样重画的依据：为什么选这张地图、连接这些问题，又为什么该放弃看似先进的方法、回到简单问题本身。它与现实检验的分工是：现实检验问地图像不像世界，初心问它是否还在回答我真正想问的事。</p>
+</div>
+
+<div class="section" id="conclusion">
+<h2>结语　徐霞客不会被飞机替代</h2>
+<p>今天一架飞机几小时就能飞过徐霞客可能数月才走完的距离，卫星地图几秒就能展开他一生无法获得的全貌；若只按走过多少公里衡量，他早被超过。但我们仍记得他，因为他在行走中把一个尚未被认识的世界变成了一张新地图，过程包含观察、比较、理解和修正，而不只是抵达。我们应该坐飞机、用导航，也让 AI 承担它更擅长的事；但专业给予我们的从来不只是抵达，还有自己的认知地图与地图之间的关系。</p>
+<p>AI 让我们有能力走遍越来越多的地图。专业让我们学会理解和重画地图。而初心，让我们始终记得为什么画。</p>
+</div>
+
+    <div class="section" id="commentSection">
+        <h2 style="font-size:1.4rem; border-left:5px solid #5b9bd5; padding-left:1rem; color:#1a4a6a;">留言讨论</h2>
+        <div class="comment-box">
+            <div id="comments-container"></div>
+            <div class="upload-note" style="margin-top:0.8rem;">
+                提示：留言需要 GitHub 账号。评论区基于 GitHub Issues，首次加载请稍候。<br>
+                请确保本页面对应的 GitHub 仓库已启用 Issues 且为公开仓库。
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="uploadSection">
+        <h2 style="font-size:1.4rem; border-left:5px solid #5b9bd5; padding-left:1rem; color:#1a4a6a;">上传文件 &amp; 共享附件</h2>
+        <div class="upload-box">
+            <p>你可以通过以下方式上传补充材料（如笔记、代码、PDF等），并获取分享链接。</p>
+            <a href="https://tmpfiles.org/" target="_blank" class="btn-upload">点击上传文件 (临时托管)</a>
+            <div class="upload-note">
+                上传后，将生成的链接粘贴到下方“已上传附件列表”中，方便他人下载。<br>
+                临时文件可能失效，建议使用 GitHub Releases 或云盘长期存储。
+            </div>
+            <div style="margin-top: 1.2rem;">
+                <label style="font-weight:500;">记录新附件链接：</label><br>
+                <input type="text" id="newUploadLink" placeholder="粘贴文件链接" style="width: 70%; padding: 0.4rem; margin: 0.5rem 0; border-radius: 30px; border: 1px solid #c4d8ec;">
+                <input type="text" id="newUploadName" placeholder="附件名称（可选）" style="width: 70%; padding: 0.4rem; margin: 0.5rem 0; border-radius: 30px; border: 1px solid #c4d8ec;">
+                <button onclick="addUploadRecord()" style="background: #2e86c1; color: white; border: none; padding: 0.4rem 1rem; border-radius: 30px; cursor: pointer;">添加记录</button>
+                <ul id="uploadRecordList" class="upload-list" style="margin-top: 1rem;"></ul>
+                <div class="upload-note">所有记录仅保存在你当前浏览器中，清除缓存会丢失。建议将重要链接直接附在留言区。</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        留言板块基于 <a href="https://github.com/utterance/utterances" target="_blank" style="color:#1a6a8a;">Utterances</a>，需要 GitHub 账号参与讨论。
+    </div>
+
+</div>
+
+<script>
+    let uploadRecords = [];
+    function loadUploadRecords() {
+        const key = window.location.pathname.replace(/^.*\/([^/]+)\.html$/, '$1') || 'default';
+        const stored = localStorage.getItem('uploads_' + key);
+        uploadRecords = stored ? JSON.parse(stored) : [];
+        renderUploadRecords();
+    }
+    function addUploadRecord() {
+        const link = document.getElementById('newUploadLink').value.trim();
+        const name = document.getElementById('newUploadName').value.trim() || '未命名附件';
+        if (!link) { alert('请填写链接'); return; }
+        uploadRecords.push({ link, name, time: new Date().toLocaleString() });
+        const key = window.location.pathname.replace(/^.*\/([^/]+)\.html$/, '$1') || 'default';
+        localStorage.setItem('uploads_' + key, JSON.stringify(uploadRecords));
+        document.getElementById('newUploadLink').value = '';
+        document.getElementById('newUploadName').value = '';
+        renderUploadRecords();
+    }
+    function deleteUploadRecord(index) {
+        uploadRecords.splice(index, 1);
+        const key = window.location.pathname.replace(/^.*\/([^/]+)\.html$/, '$1') || 'default';
+        localStorage.setItem('uploads_' + key, JSON.stringify(uploadRecords));
+        renderUploadRecords();
+    }
+    function renderUploadRecords() {
+        const listEl = document.getElementById('uploadRecordList');
+        if (!listEl) return;
+        if (uploadRecords.length === 0) { listEl.innerHTML = '<li style="color:#5a7a9a;">暂无上传记录，点击上方按钮添加。</li>'; return; }
+        listEl.innerHTML = uploadRecords.map((rec, idx) => `
+            <li>
+                <a href="${rec.link}" target="_blank">${rec.name}</a>
+                <span style="font-size:0.75rem; color:#5a7a9a; margin-left:0.5rem;">${rec.time}</span>
+                <button onclick="deleteUploadRecord(${idx})" style="margin-left:1rem; background:none; border:none; color:#b35f5f; cursor:pointer;">删除</button>
+            </li>`).join('');
+    }
+    if (document.getElementById('uploadRecordList')) {
+        loadUploadRecords();
+        window.addUploadRecord = addUploadRecord;
+        window.deleteUploadRecord = deleteUploadRecord;
+    }
+</script>
+
+<script src="https://utteranc.es/client.js"
+        repo="caojun1860/Workflow-temple"
+        issue-term="pathname"
+        label="comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</body>
+</html>
